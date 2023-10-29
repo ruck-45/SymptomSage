@@ -1,0 +1,21 @@
+.Nav{
+    background-color: transparent;
+    /* padding: 0rem 4rem; */
+}
+
+.NavBrand{
+    gap: 0.5rem;
+}
+
+.NavLink{
+    color: white;
+    font-weight: 500;
+}
+
+.logoText{
+    font-size: large;
+}
+
+.DropDownMenu{
+    height: 20rem !important;
+}
