@@ -1,5 +1,4 @@
 // Dependencies
-
 import { useState } from "react";
 import {
   Navbar,
@@ -18,9 +17,14 @@ import {
   Avatar,
 } from "@nextui-org/react";
 
+
+
 // Local Files
 import "./NavBar.css";
 import Logo from "./Logo";
+import Profile from "../assets/dummyProfile.png";
+
+
 
 type NavBarProps = {
   className?: string;
@@ -28,7 +32,7 @@ type NavBarProps = {
 
 const NavBar = (props: NavBarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuItems = ["Feature", "Contact", "Login", "Sign Up", "Log Out"];
+  const menuItems = ["Services", "About", "Login", "Sign Up"];
 
   const className = "Nav px-5 " + props.className;
 
@@ -54,19 +58,19 @@ const NavBar = (props: NavBarProps) => {
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <NavbarItem className="hidden sm:flex">
-          <Link className="NavLink" href="#">
-            Features
+        <NavbarItem className="hidden sm:flex" isActive>
+          <Link className="NavLink" href="#" aria-current="page">
+            Get Started
           </Link>
         </NavbarItem>
         <NavbarItem className="hidden sm:flex">
           <Link className="NavLink" href="#">
-            Customers
+            Services
           </Link>
         </NavbarItem>
         <NavbarItem className="hidden sm:flex">
           <Link className="NavLink" href="#">
-            Contact
+            About
           </Link>
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">
@@ -88,37 +92,26 @@ const NavBar = (props: NavBarProps) => {
               className="transition-transform"
               color="danger"
               name="Jason Hughes"
-              size="sm"
-              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              size="md"
+              src={Profile}
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
             <DropdownItem key="profile" className="h-14 gap-2">
-              <p className="font-semibold">Signed in as</p>
-              <p className="font-semibold">zoey@example.com</p>
+              <p className="font-semibold">Ready to Sign In?</p>
             </DropdownItem>
-            <DropdownItem key="settings">My Settings</DropdownItem>
-            <DropdownItem key="team_settings">Team Settings</DropdownItem>
-            <DropdownItem key="analytics">Analytics</DropdownItem>
-            <DropdownItem key="system">System</DropdownItem>
-            <DropdownItem key="configurations">Configurations</DropdownItem>
             <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
             <DropdownItem key="logout" color="danger">
-              Log Out
+              Login /Sign Up
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </NavbarContent>
 
-      <NavbarMenu>
+      <NavbarMenu style={{ background: "#d7e1ec" }}>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              color={index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"}
-              href="#"
-              size="lg"
-            >
+            <Link className="w-full" href="#" size="lg" style={{ color: "black" }}>
               {item}
             </Link>
           </NavbarMenuItem>

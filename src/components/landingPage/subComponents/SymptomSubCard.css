@@ -1,0 +1,45 @@
+.footerServiceName {
+  color: #301050;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 600px) {
+  .footerServiceName {
+    color: whitesmoke;
+  }
+}
+
+.footerServiceDescription {
+  max-width: 9rem;
+  font-size: small;
+  line-height: 0.8rem;
+}
+
+@media only screen and (max-width: 1280px) {
+  .footerServiceDescription {
+    color: white;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .footerServiceDescription {
+    max-width: 15rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .footerServiceDescription {
+    display: none;
+  }
+}
+
+.subCardImage {
+  width: 6rem;
+}
+
+@media only screen and (max-width: 850px) {
+  .subCardImage {
+    width: 4rem;
+  }
+}

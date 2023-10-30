@@ -1,4 +1,12 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+div{
+    scroll-behavior: smooth;
+}
+
 .Nav{
     position: absolute;
-    z-index: 4;
+    z-index: 5;
 }
