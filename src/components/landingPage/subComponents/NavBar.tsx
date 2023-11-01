@@ -17,14 +17,10 @@ import {
   Avatar,
 } from "@nextui-org/react";
 
-
-
 // Local Files
 import "./NavBar.css";
 import Logo from "./Logo";
 import Profile from "../assets/dummyProfile.png";
-
-
 
 type NavBarProps = {
   className?: string;
@@ -32,7 +28,7 @@ type NavBarProps = {
 
 const NavBar = (props: NavBarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuItems = ["Services", "About", "Login", "Sign Up"];
+  const menuItems = ["Get Started", "Services", "About", "Login", "Sign Up"];
 
   const className = "Nav px-5 " + props.className;
 
@@ -59,7 +55,7 @@ const NavBar = (props: NavBarProps) => {
 
       <NavbarContent justify="end">
         <NavbarItem className="hidden sm:flex" isActive>
-          <Link className="NavLink" href="#" aria-current="page">
+          <Link className="NavLink active" href="#" aria-current="page">
             Get Started
           </Link>
         </NavbarItem>
@@ -108,10 +104,10 @@ const NavBar = (props: NavBarProps) => {
         </Dropdown>
       </NavbarContent>
 
-      <NavbarMenu style={{ background: "#d7e1ec" }}>
+      <NavbarMenu className="NavbarMenu">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link className="w-full" href="#" size="lg" style={{ color: "black" }}>
+            <Link className={`w-full NavbarMenuLink ${item}`} href="#" size="lg">
               {item}
             </Link>
           </NavbarMenuItem>

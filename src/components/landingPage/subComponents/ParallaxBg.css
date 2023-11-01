@@ -5,6 +5,13 @@
   background-color: #d7e1ec;
 }
 
+@media only screen and (max-width: 700px) {
+  .ParallaxBg {
+    background-color: #0499f2;
+    background-image: linear-gradient(315deg, #0499f2 0%, #20DED3 74%);
+  }
+}
+
 .ParallaxBg > * {
   position: absolute;
 }
@@ -66,7 +73,75 @@ img {
 }
 
 @media only screen and (max-width: 700px) {
+  .c1,
   .c2 {
+    display: none;
+  }
+}
+
+.l1 {
+  z-index: 4;
+  max-width: 15rem;
+  bottom: -5rem;
+  right: 0rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .l1 {
+    max-width: 11rem;
+    bottom: -2rem;
+    right: 1rem;
+  }
+}
+
+.l2 {
+  z-index: 3;
+  max-width: 15rem;
+  bottom: -5rem;
+  transform: scaleX(-1) translateX(35%) rotate(-12deg);
+}
+
+@media only screen and (max-width: 1000px) {
+  .l2 {
+    max-width: 11rem;
+    bottom: -4rem;
+  }
+}
+
+.l3 {
+  z-index: 3;
+  max-width: 15rem;
+  bottom: -5rem;
+  transform: translate(5%) rotate(10deg);
+}
+
+@media only screen and (max-width: 1000px) {
+  .l3 {
+    max-width: 11rem;
+    bottom: -4rem;
+  }
+}
+
+.g2 {
+  z-index: 4;
+  max-width: 5rem;
+  left: 3rem;
+  bottom: 1rem;
+  transform: scaleY(1.7) scaleX(-1.7) rotate(-10deg);
+}
+
+@media only screen and (max-width: 1000px) {
+  .g2 {
+    max-width: 3.5rem;
+    left: 2.3rem;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .l1,
+  .l2,
+  .l3,
+  .g2 {
     display: none;
   }
 }

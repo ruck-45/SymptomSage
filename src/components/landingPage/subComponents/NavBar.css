@@ -1,21 +1,52 @@
-.Nav{
-    background-color: transparent;
-    /* padding: 0rem 4rem; */
+.Nav {
+  background-color: transparent;
 }
 
-.NavBrand{
-    gap: 0.5rem;
+.NavBrand {
+  gap: 0.5rem;
 }
 
-.NavLink{
-    color: white;
-    font-weight: 500;
+.NavLink {
+  color: white;
+  font-weight: 500;
+  padding: 0 0.5rem;
 }
 
-.logoText{
-    font-size: large;
+.active {
+  border: 3px solid #cce3fd;
 }
 
-.DropDownMenu{
-    height: 9rem !important;
+.logoText {
+  font-size: large;
+}
+
+.DropDownMenu {
+  height: 9rem !important;
+}
+
+.NavbarMenu {
+  background-color: #0499f2;
+  background-image: linear-gradient(315deg, #0499f2 0%, #20ded3 74%);
+}
+
+.NavbarMenuLink {
+  color: #301050;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.NavbarMenuLink:hover {
+  color: white;
+  text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.5);
+  border-left: 5px solid #f31260;
+  padding-left: 1rem;
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+.Get {
+  color: white;
+  text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.5);
+  border-left: 5px solid #f31260;
+  padding-left: 1rem;
 }
