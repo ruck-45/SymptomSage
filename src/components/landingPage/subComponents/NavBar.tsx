@@ -16,21 +16,34 @@ import {
   DropdownItem,
   Avatar,
 } from "@nextui-org/react";
+import { useNavigate } from "react-router-dom";
 
 // Local Files
 import "./NavBar.css";
-import Logo from "./Logo";
+import Logo from "../../../globalSubComponents/Logo";
 import Profile from "../assets/dummyProfile.png";
 
 type NavBarProps = {
   className?: string;
 };
 
+type routeChangeAuthEvent =
+  | React.MouseEvent<HTMLButtonElement, MouseEvent>
+  | React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  | React.MouseEvent<HTMLLIElement, MouseEvent>;
+
 const NavBar = (props: NavBarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuItems = ["Get Started", "Services", "About", "Login", "Sign Up"];
 
   const className = "Nav px-5 " + props.className;
+
+  const navigate = useNavigate();
+  const routeChangeAuth = (event: routeChangeAuthEvent, state: boolean) => {
+    let path = `./AuthenticationPage`;
+    navigate(path, { state: state });
+    event.preventDefault();
+  };
 
   return (
     <Navbar
@@ -70,12 +83,19 @@ const NavBar = (props: NavBarProps) => {
           </Link>
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">
-          <Link className="NavLink" href="#">
+          <Link className="NavLink" href="#" onClick={(e) => routeChangeAuth(e, true)}>
             Login
           </Link>
         </NavbarItem>
         <NavbarItem className="hidden md:flex">
-          <Button as={Link} color="danger" href="#" radius="full" className="NavLink">
+          <Button
+            as={Link}
+            color="danger"
+            href="#"
+            radius="full"
+            className="NavLink"
+            onClick={(e) => routeChangeAuth(e, false)}
+          >
             Sign Up
           </Button>
         </NavbarItem>
@@ -97,7 +117,13 @@ const NavBar = (props: NavBarProps) => {
               <p className="font-semibold">Ready to Sign In?</p>
             </DropdownItem>
             <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
-            <DropdownItem key="logout" color="danger">
+            <DropdownItem
+              key="logout"
+              color="danger"
+              onClick={(e) => {
+                routeChangeAuth(e, false);
+              }}
+            >
               Login /Sign Up
             </DropdownItem>
           </DropdownMenu>
@@ -105,13 +131,34 @@ const NavBar = (props: NavBarProps) => {
       </NavbarContent>
 
       <NavbarMenu className="NavbarMenu">
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link className={`w-full NavbarMenuLink ${item}`} href="#" size="lg">
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
+        {menuItems.map((item, index) => {
+          let className = "w-full NavbarMenuLink";
+          if (item === "Get Started") {
+            className += " respActive";
+          }
+
+          if (item === "Login" || item === "Sign Up") {
+            let authStatus = true;
+            if (item === "Sign Up") {
+              authStatus = false;
+            }
+            return (
+              <NavbarMenuItem key={`${item}-${index}`}>
+                <Link className={className} href="#" size="lg" onClick={(e) => routeChangeAuth(e, authStatus)}>
+                  {item}
+                </Link>
+              </NavbarMenuItem>
+            );
+          } else {
+            return (
+              <NavbarMenuItem key={`${item}-${index}`}>
+                <Link className={className} href="#" size="lg">
+                  {item}
+                </Link>
+              </NavbarMenuItem>
+            );
+          }
+        })}
       </NavbarMenu>
     </Navbar>
   );

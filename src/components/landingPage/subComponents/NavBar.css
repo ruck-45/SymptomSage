@@ -44,7 +44,7 @@
   transition-timing-function: ease-in-out;
 }
 
-.Get {
+.respActive {
   color: white;
   text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.5);
   border-left: 5px solid #f31260;

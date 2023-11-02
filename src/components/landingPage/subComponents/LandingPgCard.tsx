@@ -1,5 +1,6 @@
 // Dependencies
 import { Card, CardHeader, CardBody, CardFooter, Button } from "@nextui-org/react";
+import { useNavigate } from "react-router-dom";
 
 // Local Files
 import "./LandingPgCard.css";
@@ -11,7 +12,7 @@ import FindMyCare from "../assets/findMyCare.png";
 import MedMatch360 from "../assets/medMatch360.png";
 
 import l3 from "../assets/leaf3.svg";
-import l4 from '../assets/leaf4.svg';
+import l4 from "../assets/leaf4.svg";
 import l5 from "../assets/leaf5.svg";
 
 type LandingPgCardProps = {
@@ -48,6 +49,13 @@ const imgSrc = [
 const LandingPgCard = (props: LandingPgCardProps) => {
   const className = "gap-[0.5rem] overflow-visible bg-transparent " + props.className;
 
+  const navigate = useNavigate();
+  const routeChangeAuth = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, state: boolean) => {
+    let path = `./AuthenticationPage`;
+    navigate(path, { state: state });
+    event.preventDefault();
+  };
+
   return (
     <Card className={className} shadow="none" radius="none" disableRipple isPressable>
       <CardHeader className="pl-8">
@@ -69,7 +77,14 @@ const LandingPgCard = (props: LandingPgCardProps) => {
         })}
       </CardBody>
       <CardFooter className="mt-5 pl-8 overflow-visible justify-center xl:justify-normal">
-        <Button color="danger" variant="shadow" size="lg" className="landingCardBtn" radius="full">
+        <Button
+          color="danger"
+          variant="shadow"
+          size="lg"
+          className="landingCardBtn"
+          radius="full"
+          onClick={(e) => routeChangeAuth(e, true)}
+        >
           Login
         </Button>
         <img src={l3} alt="" className="leaf leaf3" />

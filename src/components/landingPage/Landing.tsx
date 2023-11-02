@@ -9,7 +9,6 @@ const Landing = () => {
     <div>
       <NavBar className= 'Nav' />
       <ParallaxBg />
-      
     </div>
   );
 };
