@@ -51,7 +51,7 @@ const LandingPgCard = (props: LandingPgCardProps) => {
 
   const navigate = useNavigate();
   const routeChangeAuth = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, state: boolean) => {
-    let path = `./AuthenticationPage`;
+    let path = `../Authentication`;
     navigate(path, { state: state });
     event.preventDefault();
   };

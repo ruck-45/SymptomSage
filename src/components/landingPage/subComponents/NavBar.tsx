@@ -21,7 +21,7 @@ import { useNavigate } from "react-router-dom";
 // Local Files
 import "./NavBar.css";
 import Logo from "../../../globalSubComponents/Logo";
-import Profile from "../assets/dummyProfile.png";
+import Profile from "../../../globalAssets/dummyProfile.png";
 
 type NavBarProps = {
   className?: string;
@@ -40,7 +40,7 @@ const NavBar = (props: NavBarProps) => {
 
   const navigate = useNavigate();
   const routeChangeAuth = (event: routeChangeAuthEvent, state: boolean) => {
-    let path = `./AuthenticationPage`;
+    let path = `../Authentication`;
     navigate(path, { state: state });
     event.preventDefault();
   };
