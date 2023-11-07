@@ -1,0 +1,25 @@
+.Body{
+    background-image: url('../assets/body.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 40rem;
+    width: 17rem;
+}
+
+.Body>*{
+    position: absolute;
+}
+
+.showOnHover{
+    opacity: 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.showOnHover:hover{
+    opacity: 1;
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+    scale: 1.01;
+    outline: none;
+}

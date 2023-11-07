@@ -84,6 +84,8 @@ const HomeNavBar = (props: HomeNavBarProps) => {
     setIsMenuOpen(false);
   };
 
+  // shouldHideOnScroll;
+
   return (
     <Navbar
       className={className}
@@ -92,8 +94,8 @@ const HomeNavBar = (props: HomeNavBarProps) => {
       onMenuOpenChange={setIsMenuOpen}
       height={"5rem"}
       maxWidth="full"
-      isBlurred={false}
-      shouldHideOnScroll
+      isBlurred
+      position="static"
     >
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="HomeNavToggle" />
