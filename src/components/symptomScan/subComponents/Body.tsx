@@ -11,6 +11,7 @@ import rhand from "../assets/rhand.svg";
 import rleg from "../assets/rleg.svg";
 import abdomen from "../assets/abdomen.svg";
 import chest from "../assets/chest.svg";
+import symbol from "../assets/symbol.svg";
 
 type BodyProps = {
   className?: string;
@@ -29,12 +30,12 @@ const Body = (props: BodyProps) => {
           <img src={chest} alt="" />
         </Link>
       </Tooltip>
-      <Tooltip key="Arms & shoulder" placement="left" content="Arms & shoulder" color="danger" showArrow>
+      <Tooltip key="lArm" placement="left" content="Arms & shoulder" color="danger" showArrow>
         <Link className="absolute w-[90.5px] top-[99px] showOnHover" to={"./"}>
           <img src={lhand} alt="" />
         </Link>
       </Tooltip>
-      <Tooltip key="Arms & Shoulder" placement="right" content="Arms & Shoulder" color="danger" showArrow>
+      <Tooltip key="rArm" placement="right" content="Arms & Shoulder" color="danger" showArrow>
         <Link className="absolute w-[81.8px] end-[0px] top-[114px] showOnHover" to={"./"}>
           <img src={rhand} alt="" />
         </Link>
@@ -43,20 +44,26 @@ const Body = (props: BodyProps) => {
         key="Abdomen, pelvis & buttocks"
         placement="right"
         content="Abdomen, Pelvis & Buttocks"
-        color="danger" showArrow
+        color="danger"
+        showArrow
       >
         <Link className="absolute w-[133px] start-[78px] top-[180px] showOnHover" to={"./"}>
           <img src={abdomen} alt="" />
         </Link>
       </Tooltip>
-      <Tooltip key="Legs" placement="left" content="Legs" color="danger" showArrow>
+      <Tooltip key="lLeg" placement="left" content="Legs" color="danger" showArrow>
         <Link className="absolute w-[70.4px] start-[74px] top-[311px] showOnHover" to={"./"}>
           <img src={lleg} alt="" />
         </Link>
       </Tooltip>
-      <Tooltip key="Legs" placement="right" content="Legs" color="danger" showArrow>
-        <Link className="absolute w-[64.2px] end-[64.5px] top-[320px] showOnHover" to={"/"}>
+      <Tooltip key="rLeg" placement="right" content="Legs" color="danger" showArrow>
+        <Link className="absolute w-[64.2px] end-[64.5px] top-[320px] showOnHover" to={"./"}>
           <img src={rleg} alt="" />
+        </Link>
+      </Tooltip>
+      <Tooltip key="Skin, Joints & General" placement="right" content="Skin, Joints & General" color="danger" showArrow>
+        <Link className="absolute w-[45px] start-[10px] top-[340px] showOnHover" to={"./"}>
+          <img src={symbol} alt="" />
         </Link>
       </Tooltip>
     </div>

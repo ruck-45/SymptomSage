@@ -1,9 +1,102 @@
-.s2TopBar{
-    height: 4rem;
-    background-image: linear-gradient(to right, #faedf6, #eae4f0, #d8dbe9, #c7d2df, #b6cad3);
+@import url("https://fonts.googleapis.com/css2?family=Paytone+One&display=swap");
+
+@-webkit-keyframes bob-on-hover {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes bob-on-hover {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@-webkit-keyframes bob-on-hover-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes bob-on-hover-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
 }
 
-.symptomScan{
-    height: 100vh;
-    background-image: linear-gradient(to right bottom, #faedf6, #eae4f0, #d8dbe9, #c7d2df, #b6cad3);
+.bob-on-hover {
+  -webkit-animation-name: bob-on-hover;
+  animation-name: bob-on-hover;
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+
+  margin-top: 5rem;
+  flex-shrink: 0;
 }
+
+.s2TopBar {
+  height: 4rem;
+  background-image: linear-gradient(to right, #faedf6, #eae4f0, #d8dbe9, #c7d2df, #b6cad3);
+}
+
+.symptomScan {
+  background-image: linear-gradient(to right bottom, #faedf6, #eae4f0, #d8dbe9, #c7d2df, #b6cad3);
+  padding: 2rem 0rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.S2Card {
+  max-width: 35rem;
+  align-self: flex-start;
+}
+
+@media only screen and (max-width: 768px) {
+  .symptomScan {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .S2Card {
+    max-width: 28rem;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .S2Card {
+    max-width: 35rem;
+  }
+} 
+
+@media only screen and (max-width: 600px) {
+  .S2Card {
+    max-width: 28rem;
+  }
+} 

@@ -38,7 +38,7 @@ type routeChangeLandingEvent =
   | React.MouseEvent<HTMLLIElement, MouseEvent>;
 
 const menuItems = [
-  { name: "Home", to: "./Content" },
+  { name: "Home", to: "./SymptomScan" },
   { name: "Services", to: "./Services" },
   { name: "Pricing", to: "./Pricing" },
   { name: "About", to: "./About" },
