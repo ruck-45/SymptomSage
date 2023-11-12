@@ -1,0 +1,433 @@
+{
+  "data": [
+    {
+      "ID": 48,
+      "Name": "Arms general",
+      "symptoms": [
+        {
+          "ID": 12,
+          "Name": "Pain in the limbs",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 48, 10, 49, 17, 47],
+          "ProfName": "",
+          "Synonyms": ["Body aches", "Ache all over", "Diffuse muscle aches", "Aching limbs", "Pain in the extremities"]
+        },
+        {
+          "ID": 27,
+          "Name": "Joint pain",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 48, 10, 49, 45, 17, 47],
+          "ProfName": "",
+          "Synonyms": []
+        },
+        {
+          "ID": 94,
+          "Name": "Cramps",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 10, 49, 48],
+          "ProfName": "",
+          "Synonyms": ["Spasms", "Tetany"]
+        },
+        {
+          "ID": 119,
+          "Name": "Muscle stiffness",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 10, 48, 49],
+          "ProfName": "",
+          "Synonyms": []
+        },
+        {
+          "ID": 140,
+          "Name": "Paralysis",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [17, 47, 10, 7, 49, 48],
+          "ProfName": "",
+          "Synonyms": []
+        },
+        {
+          "ID": 155,
+          "Name": "Pain in the bones",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 16, 39, 10, 48, 49],
+          "ProfName": "",
+          "Synonyms": []
+        },
+        {
+          "ID": 156,
+          "Name": "Bone fracture",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 16, 39, 10, 17, 47, 48, 49],
+          "ProfName": "",
+          "Synonyms": ["Fracture"]
+        },
+        {
+          "ID": 168,
+          "Name": "Muscular weakness in the arm",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 48],
+          "ProfName": "",
+          "Synonyms": ["Muscle weakness in the arm"]
+        },
+        {
+          "ID": 177,
+          "Name": "Muscle pain",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 48, 10, 49, 17, 47, 46],
+          "ProfName": "",
+          "Synonyms": ["Myalgia"]
+        },
+        {
+          "ID": 193,
+          "Name": "Joint swelling",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [17, 47, 10, 48, 49],
+          "ProfName": "",
+          "Synonyms": ["Swollen joint"]
+        },
+        {
+          "ID": 194,
+          "Name": "Joint effusion",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [17, 47, 10, 7, 49, 48],
+          "ProfName": "",
+          "Synonyms": []
+        },
+        {
+          "ID": 197,
+          "Name": "Immobilization",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [17, 47, 10, 7, 48, 49],
+          "ProfName": "",
+          "Synonyms": ["Akinesia", "Immobility"]
+        },
+        {
+          "ID": 198,
+          "Name": "Joint instability",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [17, 47, 10, 7, 49, 48],
+          "ProfName": "",
+          "Synonyms": []
+        },
+        {
+          "ID": 202,
+          "Name": "Muscular atrophy of the arm",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 48],
+          "ProfName": "",
+          "Synonyms": []
+        },
+        {
+          "ID": 221,
+          "Name": "Numbness in the arm",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 48],
+          "ProfName": "",
+          "Synonyms": ["Impaired sense of feeling in the arm"]
+        },
+        {
+          "ID": 230,
+          "Name": "Joint redness",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [17, 47, 10, 7, 49, 48, 45],
+          "ProfName": "",
+          "Synonyms": []
+        },
+        {
+          "ID": 248,
+          "Name": "Swollen glands in the armpit",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 48, 15, 32],
+          "ProfName": "",
+          "Synonyms": [
+            "Axillary lymph nodes",
+            "Swollen lymph nodes in the armpit",
+            "Enlarged lymph nodes in the armpit",
+            "Enlarged glands in the armpit",
+            "Swollen glands in the armpits",
+            "Swollen lymph nodes in the armpits",
+            "Enlarged lymph nodes in the armpits",
+            "Enlarged glands in the armpits"
+          ]
+        },
+        {
+          "ID": 251,
+          "Name": "Pain radiating to the arm",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [33, 15, 48, 7],
+          "ProfName": "",
+          "Synonyms": ["Pain in the shoulders", "Pain in shoulders", "Pain radiating to arm"]
+        },
+        {
+          "ID": 971,
+          "Name": "Arm swelling",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 48, 26, 28],
+          "ProfName": "",
+          "Synonyms": ["Swollen arm"]
+        },
+        {
+          "ID": 972,
+          "Name": "Weakness or numbness on right or left side of body",
+          "HasRedFlag": true,
+          "HealthSymptomLocationIDs": [7, 48, 10, 49, 17, 47],
+          "ProfName": "",
+          "Synonyms": [
+            "One-sided weakness or numbness of body",
+            "Right-sided weakness of body",
+            "Left-sided weakness of body",
+            "Right-sided numbness of body",
+            "Left-sided numbness of body",
+            "Weakness on right side of body",
+            "Weakness on left side of body",
+            "Numbness on right side of body",
+            "Numbness on left side of body",
+            "Weakness or numbness in face",
+            "Weakness or numbness in the face",
+            "Weakness in face",
+            "Numbness in face"
+          ]
+        },
+        {
+          "ID": 981,
+          "Name": "Agitation",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [48, 29, 10, 49, 44, 17, 47],
+          "ProfName": "",
+          "Synonyms": ["Restlessness", "Psychomotor agitation", "Unrest"]
+        },
+        {
+          "ID": 987,
+          "Name": "Muscle weakness",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 48, 10, 49, 17, 47, 46],
+          "ProfName": "",
+          "Synonyms": ["Muscular weakness", "Myasthenia"]
+        },
+        {
+          "ID": 1009,
+          "Name": "Arm pain",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 48],
+          "ProfName": "",
+          "Synonyms": ["Pain in the arm", "Pain in arm"]
+        }
+      ]
+    },
+    {
+      "ID": 30,
+      "Name": "Finger",
+      "symptoms": [
+        {
+          "ID": 91,
+          "Name": "Changes in the nails",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 30, 10, 44, 45],
+          "ProfName": "",
+          "Synonyms": []
+        },
+        {
+          "ID": 178,
+          "Name": "Limited mobility of the fingers",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 30],
+          "ProfName": "",
+          "Synonyms": ["Limited finger mobility"]
+        },
+        {
+          "ID": 201,
+          "Name": "Tingling",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 29, 30, 10, 44, 45],
+          "ProfName": "",
+          "Synonyms": ["Paresthesia", "Pins and needles feeling", "Tingling in the affected area"]
+        },
+        {
+          "ID": 991,
+          "Name": "Blue colored skin",
+          "HasRedFlag": true,
+          "HealthSymptomLocationIDs": [6, 25, 7, 30, 17, 46],
+          "ProfName": "",
+          "Synonyms": [
+            "Blue colored lips",
+            "Blue colored nails",
+            "Blue colored fingertips",
+            "Cyanosis",
+            "Bluish discoloration of the skin",
+            "Bluish skin",
+            "Blue skin"
+          ]
+        },
+        {
+          "ID": 995,
+          "Name": "Finger deformity",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 30],
+          "ProfName": "",
+          "Synonyms": ["Finger joint deformity"]
+        },
+        {
+          "ID": 1012,
+          "Name": "Finger swelling",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 30],
+          "ProfName": "",
+          "Synonyms": ["Swollen finger"]
+        },
+        {
+          "ID": 1013,
+          "Name": "Finger pain",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 30],
+          "ProfName": "",
+          "Synonyms": ["Pain in the finger"]
+        }
+      ]
+    },
+    {
+      "ID": 28,
+      "Name": "Forearm & elbow",
+      "symptoms": [
+        {
+          "ID": 186,
+          "Name": "Hand pain",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 28, 29],
+          "ProfName": "",
+          "Synonyms": ["Wrist pain", "Pain in the hand", "Pain in the wrist"]
+        },
+        {
+          "ID": 971,
+          "Name": "Arm swelling",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 48, 26, 28],
+          "ProfName": "",
+          "Synonyms": ["Swollen arm"]
+        },
+        {
+          "ID": 1011,
+          "Name": "Elbow pain",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 28],
+          "ProfName": "",
+          "Synonyms": ["Pain in the elbow", "Pain in elbow"]
+        }
+      ]
+    },
+    {
+      "ID": 29,
+      "Name": "Hand & wrist",
+      "symptoms": [
+        {
+          "ID": 115,
+          "Name": "Tremor at rest",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 29, 10, 44, 17, 47],
+          "ProfName": "",
+          "Synonyms": ["Tremble at rest", "Trembling at rest"]
+        },
+        {
+          "ID": 132,
+          "Name": "Tremor on movement",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 29, 17, 47, 10, 44],
+          "ProfName": "",
+          "Synonyms": ["Tremble on movement", "Trembling on movement"]
+        },
+        {
+          "ID": 148,
+          "Name": "Hand swelling",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 29],
+          "ProfName": "",
+          "Synonyms": ["Swollen hand"]
+        },
+        {
+          "ID": 186,
+          "Name": "Hand pain",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 28, 29],
+          "ProfName": "",
+          "Synonyms": ["Wrist pain", "Pain in the hand", "Pain in the wrist"]
+        },
+        {
+          "ID": 200,
+          "Name": "Numbness of the hands",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 29],
+          "ProfName": "",
+          "Synonyms": ["Going to sleep of the hands", "Impaired sense of feeling in the hands", "Numbness of the hand"]
+        },
+        {
+          "ID": 201,
+          "Name": "Tingling",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 29, 30, 10, 44, 45],
+          "ProfName": "",
+          "Synonyms": ["Paresthesia", "Pins and needles feeling", "Tingling in the affected area"]
+        },
+        {
+          "ID": 216,
+          "Name": "Discoloration of nails",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 29, 10, 44, 45],
+          "ProfName": "",
+          "Synonyms": []
+        },
+        {
+          "ID": 257,
+          "Name": "Involuntary movements",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 29, 10, 49, 44, 17, 47],
+          "ProfName": "",
+          "Synonyms": []
+        },
+        {
+          "ID": 978,
+          "Name": "Cold hands",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 29],
+          "ProfName": "",
+          "Synonyms": []
+        },
+        {
+          "ID": 979,
+          "Name": "Brittleness of nails",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 29, 10, 44, 45],
+          "ProfName": "",
+          "Synonyms": ["Brittle nails", "Fragility of nails", "Onychorrhexis", "Onychoschisis"]
+        },
+        {
+          "ID": 981,
+          "Name": "Agitation",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [48, 29, 10, 49, 44, 17, 47],
+          "ProfName": "",
+          "Synonyms": ["Restlessness", "Psychomotor agitation", "Unrest"]
+        },
+        {
+          "ID": 984,
+          "Name": "Absence of a pulse",
+          "HasRedFlag": true,
+          "HealthSymptomLocationIDs": [6, 24, 22, 7, 29, 10, 41, 16, 38],
+          "ProfName": "",
+          "Synonyms": ["Absence of the pulse", "Acrotism", "Pulselessness"]
+        }
+      ]
+    },
+    {
+      "ID": 26,
+      "Name": "Upper arm & shoulder",
+      "symptoms": [
+        {
+          "ID": 971,
+          "Name": "Arm swelling",
+          "HasRedFlag": false,
+          "HealthSymptomLocationIDs": [7, 48, 26, 28],
+          "ProfName": "",
+          "Synonyms": ["Swollen arm"]
+        }
+      ]
+    }
+  ]
+}

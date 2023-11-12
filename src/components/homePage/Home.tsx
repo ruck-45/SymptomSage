@@ -17,12 +17,13 @@ const Home = () => {
       <HomeNavBar />
       <Routes>
         <Route path="/" element={<Navigate to="./SymptomScan" />} />
-        <Route path="/SymptomScan" element={<SymptomScan />} />
+        <Route path="/SymptomScan/*" element={<SymptomScan />} />
         <Route path="/FitnessPal" element={<FitnessPal />} />
         <Route path="/MedMatch360" element={<MedMatch360 />} />
         <Route path="/FindMyCare" element={<FindMyCare />} />
         <Route path="/Services" element={<Services />} />
         <Route path="/About" element={<About />} />
+        <Route path="/*" element={<SymptomScan />} />
       </Routes>
     </div>
   );

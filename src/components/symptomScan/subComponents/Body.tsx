@@ -1,6 +1,6 @@
 // Dependencies
-import { Link } from "react-router-dom";
 import { Tooltip } from "@nextui-org/react";
+import { useNavigate } from "react-router-dom";
 
 // Local Files
 import "./Body.css";
@@ -15,30 +15,60 @@ import symbol from "../assets/symbol.svg";
 
 type BodyProps = {
   className?: string;
+  age: number;
+  sex: string;
+  setSymptomsToken: Function;
+  infoToken: Boolean;
+  onOpen: Function;
+  setPainPoint: Function;
 };
 
 const Body = (props: BodyProps) => {
+  const navigate = useNavigate();
+
+  const bodyClicked = (event: React.MouseEvent<HTMLImageElement, MouseEvent>, id: number) => {
+    props.setPainPoint(id);
+    if (props.infoToken) {
+      props.setSymptomsToken(true);
+      navigate("../SymptomsList", { state: { id: id, age: props.age, sex: props.sex } });
+    } else {
+      props.onOpen();
+    }
+  };
+
   return (
     <div className={"Body " + props.className}>
       <Tooltip key="Head, Throat & Neck" placement="right" content="Head, Throat & Neck" color="danger" showArrow>
-        <Link className="absolute w-[73px] start-[97.5px] showOnHover" to={"./"}>
-          <img src={head} alt="" />
-        </Link>
+        <img
+          src={head}
+          alt=""
+          className="absolute w-[73px] start-[97.5px] showOnHover"
+          onClick={(e) => bodyClicked(e, 6)}
+        />
       </Tooltip>
       <Tooltip key="Chest & Back" placement="right" content="Chest & Back" color="danger" showArrow>
-        <Link className="absolute w-[160px] start-[63px] top-[83.5px] showOnHover" to={"./"}>
-          <img src={chest} alt="" />
-        </Link>
+        <img
+          src={chest}
+          alt=""
+          className="absolute w-[160px] start-[63px] top-[83.5px] showOnHover"
+          onClick={(e) => bodyClicked(e, 15)}
+        />
       </Tooltip>
       <Tooltip key="lArm" placement="left" content="Arms & shoulder" color="danger" showArrow>
-        <Link className="absolute w-[90.5px] top-[99px] showOnHover" to={"./"}>
-          <img src={lhand} alt="" />
-        </Link>
+        <img
+          src={lhand}
+          alt=""
+          className="absolute w-[90.5px] top-[99px] showOnHover"
+          onClick={(e) => bodyClicked(e, 7)}
+        />
       </Tooltip>
       <Tooltip key="rArm" placement="right" content="Arms & Shoulder" color="danger" showArrow>
-        <Link className="absolute w-[81.8px] end-[0px] top-[114px] showOnHover" to={"./"}>
-          <img src={rhand} alt="" />
-        </Link>
+        <img
+          src={rhand}
+          alt=""
+          className="absolute w-[81.8px] end-[0px] top-[114px] showOnHover"
+          onClick={(e) => bodyClicked(e, 7)}
+        />
       </Tooltip>
       <Tooltip
         key="Abdomen, pelvis & buttocks"
@@ -47,24 +77,36 @@ const Body = (props: BodyProps) => {
         color="danger"
         showArrow
       >
-        <Link className="absolute w-[133px] start-[78px] top-[180px] showOnHover" to={"./"}>
-          <img src={abdomen} alt="" />
-        </Link>
+        <img
+          src={abdomen}
+          alt=""
+          className="absolute w-[133px] start-[78px] top-[180px] showOnHover"
+          onClick={(e) => bodyClicked(e, 16)}
+        />
       </Tooltip>
       <Tooltip key="lLeg" placement="left" content="Legs" color="danger" showArrow>
-        <Link className="absolute w-[70.4px] start-[74px] top-[311px] showOnHover" to={"./"}>
-          <img src={lleg} alt="" />
-        </Link>
+        <img
+          src={lleg}
+          alt=""
+          className="absolute w-[70.4px] start-[74px] top-[311px] showOnHover"
+          onClick={(e) => bodyClicked(e, 10)}
+        />
       </Tooltip>
       <Tooltip key="rLeg" placement="right" content="Legs" color="danger" showArrow>
-        <Link className="absolute w-[64.2px] end-[64.5px] top-[320px] showOnHover" to={"./"}>
-          <img src={rleg} alt="" />
-        </Link>
+        <img
+          src={rleg}
+          alt=""
+          className="absolute w-[64.2px] end-[64.5px] top-[320px] showOnHover"
+          onClick={(e) => bodyClicked(e, 10)}
+        />
       </Tooltip>
       <Tooltip key="Skin, Joints & General" placement="right" content="Skin, Joints & General" color="danger" showArrow>
-        <Link className="absolute w-[45px] start-[10px] top-[340px] showOnHover" to={"./"}>
-          <img src={symbol} alt="" />
-        </Link>
+        <img
+          src={symbol}
+          alt=""
+          className="absolute w-[45px] start-[10px] top-[340px] showOnHover"
+          onClick={(e) => bodyClicked(e, 17)}
+        />
       </Tooltip>
     </div>
   );

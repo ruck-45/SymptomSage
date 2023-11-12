@@ -9,6 +9,9 @@ type S2CardProps = {
   className?: string;
   setAge: Function;
   setSex: Function;
+  setInfoToken: Function;
+  age: number;
+  sex: string;
 };
 
 const S2Card = (props: S2CardProps) => {
@@ -31,7 +34,10 @@ const S2Card = (props: S2CardProps) => {
       <Divider />
       <CardBody className="S2CardBody">
         <p className="text-small text-default-500 max-w-[85%]">
-          Simply click on the affected region, and let us uncover possible symptoms for you.
+          Please specify your Age & Sex then simply click on the affected region, and let us uncover possible
+          symptoms for you.
+          <br />
+          <br />
           <i> Discover, Diagnose & Decide .</i>
         </p>
         <Arrow />
@@ -43,22 +49,24 @@ const S2Card = (props: S2CardProps) => {
           step={1}
           maxValue={100}
           minValue={0}
-          defaultValue={20}
+          defaultValue={props.age}
           className="max-w-md slider"
           showTooltip
           size="lg"
           color="secondary"
           onChange={(e) => {
             props.setAge(e);
+            props.setInfoToken(true);
           }}
         />
         <RadioGroup
           label="Select your Sex"
           orientation="horizontal"
           color="secondary"
-          defaultValue="male"
+          defaultValue={props.sex}
           onChange={(e) => {
             props.setSex(e.target.value);
+            props.setInfoToken(true);
           }}
         >
           <Radio value="male">Male</Radio>

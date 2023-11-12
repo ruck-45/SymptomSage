@@ -17,8 +17,9 @@ function App() {
       <Route path="/Landing" element={<Landing />} />
       <Route path="/Authentication" element={<UserAuth />} />
       <Route path="/Home/*" element={<Home />} />
+      <Route path="*" element={<Landing />} />
     </Routes>
   );
-}
+  }
 
 export default App;
