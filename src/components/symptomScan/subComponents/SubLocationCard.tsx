@@ -8,6 +8,9 @@ import { CustomCheckbox } from "./CustomCheckbox";
 type SubLocationCardProps = {
   className?: string;
   name: string;
+  setSymptoms: Function;
+  setSymptomsIds: Function;
+  painpointid: number;
   symptoms: {
     ID: number;
     Name: string;
@@ -16,6 +19,9 @@ type SubLocationCardProps = {
     ProfName: string;
     Synonyms: string[];
   }[];
+  symptomsids: {
+    [key: number]: boolean;
+  };
 };
 
 const SubLocationCard = (props: SubLocationCardProps) => {
@@ -38,7 +44,16 @@ const SubLocationCard = (props: SubLocationCardProps) => {
         <CheckboxGroup className="gap-1" orientation="horizontal">
           {props.symptoms.map((ob): JSX.Element => {
             return (
-              <CustomCheckbox key={ob.ID} value={ob.ID}>
+              <CustomCheckbox
+                key={ob.ID}
+                symptomsid={ob.ID}
+                value={ob.Name}
+                setsymptoms={props.setSymptoms}
+                painpointid={props.painpointid}
+                setsymptomsids={props.setSymptomsIds}
+                symptomsname={ob.Name}
+                symptomsids={props.symptomsids}
+              >
                 {ob.Name}
               </CustomCheckbox>
             );

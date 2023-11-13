@@ -1,5 +1,7 @@
 import { useCheckbox, Chip, VisuallyHidden, tv } from "@nextui-org/react";
 import CheckIcon from "./CheckIcon";
+import { painPointNames } from "../utils/painPointNames";
+import { useState } from "react";
 
 const checkbox = tv({
   slots: {
@@ -9,7 +11,7 @@ const checkbox = tv({
   variants: {
     isSelected: {
       true: {
-        base: "border-primary bg-primary hover:bg-primary-500 hover:border-primary-500",
+        base: "border-primary bg-primary hover:bg-primary hover:border-primary",
         content: "text-primary-foreground pl-1",
       },
     },
@@ -21,19 +23,100 @@ const checkbox = tv({
   },
 });
 
-export const CustomCheckbox = (props: any) => {
-  const { children, isSelected, isFocusVisible, getBaseProps, getLabelProps, getInputProps } = useCheckbox({
+type prevSymptomsIdType = {
+  [key: number]: boolean;
+};
+
+type CustomCheckboxProps = {
+  className?: string;
+  children: string;
+  value: string;
+  setsymptoms: Function;
+  setsymptomsids: Function;
+  painpointid: number;
+  symptomsid: number;
+  symptomsname: string;
+  symptomsids: prevSymptomsIdType;
+};
+
+type prevSymptomsOb = {
+  Name: string;
+  Symptoms: {
+    Name: string;
+    ID: number;
+  }[];
+};
+
+export const CustomCheckbox = (props: CustomCheckboxProps) => {
+  const { children, isFocusVisible, getBaseProps, getLabelProps, getInputProps } = useCheckbox({
     ...props,
+  });
+
+  const [isSelected, setIsSelected] = useState(() => {
+    if (props.symptomsids[props.symptomsid] === undefined) {
+      return false;
+    } else {
+      return true;
+    }
   });
 
   const styles = checkbox({ isSelected, isFocusVisible });
 
   const saveSymptom = () => {
     if (isSelected) {
-      console.log("removing symptoms ....");
+      props.setsymptoms((prevState: prevSymptomsOb[]) => {
+        let updatedSymptoms = prevState.map((ob) => {
+          if (ob.Name === painPointNames[props.painpointid]) {
+            return {
+              ...ob,
+              Symptoms: ob.Symptoms.filter((symptom) => symptom.ID !== props.symptomsid),
+            };
+          }
+          return ob;
+        });
+
+        updatedSymptoms = updatedSymptoms.filter((ob) => ob.Symptoms.length > 0);
+
+        return updatedSymptoms;
+      });
+
+      props.setsymptomsids((prevSymptomsIds: prevSymptomsIdType) => {
+        let updatedSymptomsIds = { ...prevSymptomsIds };
+        delete updatedSymptomsIds[props.symptomsid];
+        return updatedSymptomsIds;
+      });
     } else {
-      console.log("Saving symptoms ....");
+      const newSymptom = {
+        Name: props.symptomsname,
+        ID: props.symptomsid,
+      };
+
+      props.setsymptoms((prevState: prevSymptomsOb[]) => {
+        const painpointExists = prevState.some((ob) => ob.Name === painPointNames[props.painpointid]);
+
+        if (painpointExists) {
+          return prevState.map((ob) => {
+            if (ob.Name === painPointNames[props.painpointid]) {
+              return {
+                ...ob,
+                Symptoms: [...ob.Symptoms, newSymptom],
+              };
+            }
+            return ob;
+          });
+        } else {
+          return [...prevState, { Name: painPointNames[props.painpointid], Symptoms: [newSymptom] }];
+        }
+      });
+
+      props.setsymptomsids((prevSymptomsIds: prevSymptomsIdType) => {
+        let updatedSymptomsIds = { ...prevSymptomsIds };
+        updatedSymptomsIds[props.symptomsid] = true;
+
+        return updatedSymptomsIds;
+      });
     }
+    setIsSelected(!isSelected);
   };
 
   return (

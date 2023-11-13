@@ -26,11 +26,20 @@ type symptomsFormProps = {
   sex: string;
   setAge: Function;
   setSex: Function;
+  symptoms: {
+    Name: string;
+    Symptoms: {
+      Name: string;
+      ID: number;
+    }[];
+  }[];
+  setSymptoms: Function;
+  setSymptomsIds: Function;
 };
 
 const SymptomsForm = (props: symptomsFormProps) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [painPoint, setPainPoint] = useState(-1);
+  const [painpoint, setPainpoint] = useState(-1);
 
   const navigate = useNavigate();
 
@@ -47,7 +56,12 @@ const SymptomsForm = (props: symptomsFormProps) => {
             setInfoToken={props.setInfoToken}
           />
           <Divider className="hidden md:block xl:hidden" />
-          <SymptomsCard className="min-w-[28rem] xl:hidden self-center" />
+          <SymptomsCard
+            className="min-w-[28rem] xl:hidden self-center"
+            symptoms={props.symptoms}
+            setSymptoms={props.setSymptoms}
+            setSymptomsIds={props.setSymptomsIds}
+          />
         </div>
         <Body
           className="bob-on-hover"
@@ -56,9 +70,14 @@ const SymptomsForm = (props: symptomsFormProps) => {
           setSymptomsToken={props.setSymptomsToken}
           infoToken={props.infoToken}
           onOpen={onOpen}
-          setPainPoint={setPainPoint}
+          setPainpoint={setPainpoint}
         />
-        <SymptomsCard className="min-w-[20rem] hidden xl:block self-start" />
+        <SymptomsCard
+          className="min-w-[20rem] hidden xl:block self-start"
+          symptoms={props.symptoms}
+          setSymptoms={props.setSymptoms}
+          setSymptomsIds={props.setSymptomsIds}
+        />
       </div>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="center">
         <ModalContent>
@@ -80,7 +99,8 @@ const SymptomsForm = (props: symptomsFormProps) => {
                   onPress={() => {
                     onClose();
                     props.setInfoToken(true);
-                    navigate("../SymptomsList", { state: { id: painPoint, age: props.age, sex: props.sex } });
+                    props.setSymptomsToken(true);
+                    navigate("../SymptomsList", { state: { id: painpoint, age: props.age, sex: props.sex } });
                   }}
                 >
                   Yes, I Have

@@ -20,17 +20,17 @@ type BodyProps = {
   setSymptomsToken: Function;
   infoToken: Boolean;
   onOpen: Function;
-  setPainPoint: Function;
+  setPainpoint: Function;
 };
 
 const Body = (props: BodyProps) => {
   const navigate = useNavigate();
 
-  const bodyClicked = (event: React.MouseEvent<HTMLImageElement, MouseEvent>, id: number) => {
-    props.setPainPoint(id);
+  const bodyClicked = (id: number) => {
+    props.setPainpoint(id);
     if (props.infoToken) {
       props.setSymptomsToken(true);
-      navigate("../SymptomsList", { state: { id: id, age: props.age, sex: props.sex } });
+      navigate("../SymptomsList", { state: { id: id, age: props.age, sex: props.sex} });
     } else {
       props.onOpen();
     }
@@ -43,7 +43,7 @@ const Body = (props: BodyProps) => {
           src={head}
           alt=""
           className="absolute w-[73px] start-[97.5px] showOnHover"
-          onClick={(e) => bodyClicked(e, 6)}
+          onClick={() => bodyClicked(6)}
         />
       </Tooltip>
       <Tooltip key="Chest & Back" placement="right" content="Chest & Back" color="danger" showArrow>
@@ -51,7 +51,7 @@ const Body = (props: BodyProps) => {
           src={chest}
           alt=""
           className="absolute w-[160px] start-[63px] top-[83.5px] showOnHover"
-          onClick={(e) => bodyClicked(e, 15)}
+          onClick={() => bodyClicked(15)}
         />
       </Tooltip>
       <Tooltip key="lArm" placement="left" content="Arms & shoulder" color="danger" showArrow>
@@ -59,7 +59,7 @@ const Body = (props: BodyProps) => {
           src={lhand}
           alt=""
           className="absolute w-[90.5px] top-[99px] showOnHover"
-          onClick={(e) => bodyClicked(e, 7)}
+          onClick={() => bodyClicked(7)}
         />
       </Tooltip>
       <Tooltip key="rArm" placement="right" content="Arms & Shoulder" color="danger" showArrow>
@@ -67,7 +67,7 @@ const Body = (props: BodyProps) => {
           src={rhand}
           alt=""
           className="absolute w-[81.8px] end-[0px] top-[114px] showOnHover"
-          onClick={(e) => bodyClicked(e, 7)}
+          onClick={() => bodyClicked(7)}
         />
       </Tooltip>
       <Tooltip
@@ -81,7 +81,7 @@ const Body = (props: BodyProps) => {
           src={abdomen}
           alt=""
           className="absolute w-[133px] start-[78px] top-[180px] showOnHover"
-          onClick={(e) => bodyClicked(e, 16)}
+          onClick={() => bodyClicked(16)}
         />
       </Tooltip>
       <Tooltip key="lLeg" placement="left" content="Legs" color="danger" showArrow>
@@ -89,7 +89,7 @@ const Body = (props: BodyProps) => {
           src={lleg}
           alt=""
           className="absolute w-[70.4px] start-[74px] top-[311px] showOnHover"
-          onClick={(e) => bodyClicked(e, 10)}
+          onClick={() => bodyClicked(10)}
         />
       </Tooltip>
       <Tooltip key="rLeg" placement="right" content="Legs" color="danger" showArrow>
@@ -97,7 +97,7 @@ const Body = (props: BodyProps) => {
           src={rleg}
           alt=""
           className="absolute w-[64.2px] end-[64.5px] top-[320px] showOnHover"
-          onClick={(e) => bodyClicked(e, 10)}
+          onClick={() => bodyClicked(10)}
         />
       </Tooltip>
       <Tooltip key="Skin, Joints & General" placement="right" content="Skin, Joints & General" color="danger" showArrow>
@@ -105,7 +105,7 @@ const Body = (props: BodyProps) => {
           src={symbol}
           alt=""
           className="absolute w-[45px] start-[10px] top-[340px] showOnHover"
-          onClick={(e) => bodyClicked(e, 17)}
+          onClick={() => bodyClicked(17)}
         />
       </Tooltip>
     </div>
