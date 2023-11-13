@@ -1,12 +1,12 @@
 // Dependencies
-import { Card, CardHeader, CardBody, CheckboxGroup, Image } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, CheckboxGroup } from "@nextui-org/react";
 
 // Local Files
-import "./SubLocationCard.css";
 import { CustomCheckbox } from "./CustomCheckbox";
 
 type SubLocationCardProps = {
   className?: string;
+  children?: JSX.Element;
   name: string;
   setSymptoms: Function;
   setSymptomsIds: Function;
@@ -25,16 +25,12 @@ type SubLocationCardProps = {
 };
 
 const SubLocationCard = (props: SubLocationCardProps) => {
+  const className = "xl:max-w-[75%] bg-transparent " + props.className;
+
   return (
-    <Card className="max-w-[75%] bg-transparent">
+    <Card className={className}>
       <CardHeader className="flex gap-3">
-        <Image
-          alt="nextui logo"
-          height={40}
-          radius="sm"
-          src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
-          width={40}
-        />
+        {props.children}
         <div className="flex flex-col">
           <p className="text-md capitalize">{props.name}</p>
           <p className="text-small text-default-500">Symptoms</p>

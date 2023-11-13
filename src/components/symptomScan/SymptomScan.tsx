@@ -6,9 +6,12 @@ import { useState } from "react";
 import "./SymptomScan.css";
 import SymptomsForm from "./subComponents/SymptomsForm";
 import SymptomsList from "./subComponents/SymptomsList";
+import Diagnosis from "./subComponents/Diagnosis";
 
 const SymptomScan = () => {
   const [symptomsToken, setSymptomsToken] = useState(false);
+  const [diagnosisToken, setDiagnosisToken] = useState(false);
+  
   const [infoToken, setInfoToken] = useState(false);
   const [age, setAge] = useState(20);
   const [sex, setSex] = useState("male");
@@ -35,6 +38,7 @@ const SymptomScan = () => {
               symptoms={symptoms}
               setSymptoms={setSymptoms}
               setSymptomsIds={setSymptomsIds}
+              setDiagnosisToken={setDiagnosisToken}
             />
           }
         />
@@ -55,6 +59,29 @@ const SymptomScan = () => {
                 symptoms={symptoms}
                 setSymptoms={setSymptoms}
                 setSymptomsIds={setSymptomsIds}
+                setDiagnosisToken={setDiagnosisToken}
+              />
+            )
+          }
+        />
+        <Route
+          path="/Diagnosis"
+          element={
+            diagnosisToken ? (
+              <Diagnosis age={age} sex={sex} symptomsids={symptomsids} />
+            ) : (
+              <SymptomsForm
+                setSymptomsToken={setSymptomsToken}
+                infoToken={infoToken}
+                setInfoToken={setInfoToken}
+                age={age}
+                sex={sex}
+                setAge={setAge}
+                setSex={setSex}
+                symptoms={symptoms}
+                setSymptoms={setSymptoms}
+                setSymptomsIds={setSymptomsIds}
+                setDiagnosisToken={setDiagnosisToken}
               />
             )
           }
@@ -73,6 +100,7 @@ const SymptomScan = () => {
               symptoms={symptoms}
               setSymptoms={setSymptoms}
               setSymptomsIds={setSymptomsIds}
+              setDiagnosisToken={setDiagnosisToken}
             />
           }
         />

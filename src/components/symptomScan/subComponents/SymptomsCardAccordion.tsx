@@ -1,9 +1,5 @@
 // Dependencies
 import { Accordion, AccordionItem, Chip } from "@nextui-org/react";
-import { useState } from "react";
-
-// Local Files
-import "./SymptomsCardAccordion.css";
 
 type prevSymptomsOb = {
   Name: string;
@@ -38,9 +34,6 @@ const SymptomsCardAccordion = (props: SymptomsCardAccordionProps) => {
         }
         return ob;
       });
-      console.log("here...")
-      console.log(updatedSymptoms)
-
       updatedSymptoms = updatedSymptoms.filter((ob) => ob.Symptoms.length > 0);
 
       return updatedSymptoms;

@@ -35,6 +35,7 @@ type symptomsFormProps = {
   }[];
   setSymptoms: Function;
   setSymptomsIds: Function;
+  setDiagnosisToken: Function;
 };
 
 const SymptomsForm = (props: symptomsFormProps) => {
@@ -61,6 +62,7 @@ const SymptomsForm = (props: symptomsFormProps) => {
             symptoms={props.symptoms}
             setSymptoms={props.setSymptoms}
             setSymptomsIds={props.setSymptomsIds}
+            setDiagnosisToken={props.setDiagnosisToken}
           />
         </div>
         <Body
@@ -77,6 +79,7 @@ const SymptomsForm = (props: symptomsFormProps) => {
           symptoms={props.symptoms}
           setSymptoms={props.setSymptoms}
           setSymptomsIds={props.setSymptomsIds}
+          setDiagnosisToken={props.setDiagnosisToken}
         />
       </div>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="center">
