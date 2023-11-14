@@ -1,6 +1,7 @@
 // Dependencies
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, Link } from "react-router-dom";
 import { useState } from "react";
+import { Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
 
 // Local Files
 import "./SymptomScan.css";
@@ -11,7 +12,7 @@ import Diagnosis from "./subComponents/Diagnosis";
 const SymptomScan = () => {
   const [symptomsToken, setSymptomsToken] = useState(false);
   const [diagnosisToken, setDiagnosisToken] = useState(false);
-  
+
   const [infoToken, setInfoToken] = useState(false);
   const [age, setAge] = useState(20);
   const [sex, setSex] = useState("male");
@@ -19,9 +20,21 @@ const SymptomScan = () => {
   const [symptoms, setSymptoms] = useState([]);
   const [symptomsids, setSymptomsIds] = useState({});
 
+  const [directories, setDirectories] = useState([{ name: "Symptom Scan", path: "/Home/SymptomScan/SymptomsForm" }]);
+
   return (
     <>
-      <div className="s2TopBar"></div>
+      <div className="s2TopBar flex items-center ps-[7rem]">
+        <Breadcrumbs size="lg" className="font-semibold">
+          {directories.map((ob) => {
+            return (
+              <BreadcrumbItem>
+                <Link to={ob.path}>{ob.name}</Link>
+              </BreadcrumbItem>
+            );
+          })}
+        </Breadcrumbs>
+      </div>
       <Routes>
         <Route path="/" element={<Navigate to="./SymptomsForm" />} />
         <Route
@@ -39,6 +52,8 @@ const SymptomScan = () => {
               setSymptoms={setSymptoms}
               setSymptomsIds={setSymptomsIds}
               setDiagnosisToken={setDiagnosisToken}
+              setDirectories={setDirectories}
+              directories={directories}
             />
           }
         />
@@ -46,7 +61,15 @@ const SymptomScan = () => {
           path="/SymptomsList"
           element={
             symptomsToken ? (
-              <SymptomsList setSymptoms={setSymptoms} setSymptomsIds={setSymptomsIds} symptomsids={symptomsids} />
+              <SymptomsList
+                setSymptoms={setSymptoms}
+                setSymptomsIds={setSymptomsIds}
+                symptomsids={symptomsids}
+                age={age}
+                sex={sex}
+                setDirectories={setDirectories}
+                directories={directories}
+              />
             ) : (
               <SymptomsForm
                 setSymptomsToken={setSymptomsToken}
@@ -60,6 +83,8 @@ const SymptomScan = () => {
                 setSymptoms={setSymptoms}
                 setSymptomsIds={setSymptomsIds}
                 setDiagnosisToken={setDiagnosisToken}
+                setDirectories={setDirectories}
+                directories={directories}
               />
             )
           }
@@ -68,7 +93,13 @@ const SymptomScan = () => {
           path="/Diagnosis"
           element={
             diagnosisToken ? (
-              <Diagnosis age={age} sex={sex} symptomsids={symptomsids} />
+              <Diagnosis
+                age={age}
+                sex={sex}
+                symptomsids={symptomsids}
+                setDirectories={setDirectories}
+                directories={directories}
+              />
             ) : (
               <SymptomsForm
                 setSymptomsToken={setSymptomsToken}
@@ -82,6 +113,8 @@ const SymptomScan = () => {
                 setSymptoms={setSymptoms}
                 setSymptomsIds={setSymptomsIds}
                 setDiagnosisToken={setDiagnosisToken}
+                setDirectories={setDirectories}
+                directories={directories}
               />
             )
           }
@@ -101,6 +134,8 @@ const SymptomScan = () => {
               setSymptoms={setSymptoms}
               setSymptomsIds={setSymptomsIds}
               setDiagnosisToken={setDiagnosisToken}
+              setDirectories={setDirectories}
+              directories={directories}
             />
           }
         />

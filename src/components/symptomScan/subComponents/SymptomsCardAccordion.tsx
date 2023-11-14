@@ -1,30 +1,20 @@
 // Dependencies
 import { Accordion, AccordionItem, Chip } from "@nextui-org/react";
 
-type prevSymptomsOb = {
-  Name: string;
-  Symptoms: {
-    Name: string;
-    ID: number;
-  }[];
-};
+// Local Files
+import { symptom, symptomsid } from "../utils/customTypes";
 
 type SymptomsCardAccordionProps = {
   className?: string;
   setsymptomsids: Function;
   setsymptoms: Function;
-  symptoms: prevSymptomsOb[];
-};
-
-type prevSymptomsIdType = {
-  [key: number]: boolean;
+  symptoms: symptom;
 };
 
 const SymptomsCardAccordion = (props: SymptomsCardAccordionProps) => {
-
   const handleClose = (painPointname: string, symptomToRemove: number) => {
-    console.log(symptomToRemove)
-    props.setsymptoms((prevState: prevSymptomsOb[]) => {
+    console.log(symptomToRemove);
+    props.setsymptoms((prevState: symptom) => {
       let updatedSymptoms = prevState.map((ob) => {
         if (ob.Name === painPointname) {
           return {
@@ -39,7 +29,7 @@ const SymptomsCardAccordion = (props: SymptomsCardAccordionProps) => {
       return updatedSymptoms;
     });
 
-    props.setsymptomsids((prevSymptomsIds: prevSymptomsIdType) => {
+    props.setsymptomsids((prevSymptomsIds: symptomsid) => {
       let updatedSymptomsIds = { ...prevSymptomsIds };
       delete updatedSymptomsIds[symptomToRemove];
       return updatedSymptomsIds;

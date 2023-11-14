@@ -15,8 +15,6 @@ import symbol from "../assets/symbol.svg";
 
 type BodyProps = {
   className?: string;
-  age: number;
-  sex: string;
   setSymptomsToken: Function;
   infoToken: Boolean;
   onOpen: Function;
@@ -30,7 +28,7 @@ const Body = (props: BodyProps) => {
     props.setPainpoint(id);
     if (props.infoToken) {
       props.setSymptomsToken(true);
-      navigate("../SymptomsList", { state: { id: id, age: props.age, sex: props.sex} });
+      navigate("../SymptomsList", { state: { id: id } });
     } else {
       props.onOpen();
     }
@@ -55,12 +53,7 @@ const Body = (props: BodyProps) => {
         />
       </Tooltip>
       <Tooltip key="lArm" placement="left" content="Arms & shoulder" color="danger" showArrow>
-        <img
-          src={lhand}
-          alt=""
-          className="absolute w-[90.5px] top-[99px] showOnHover"
-          onClick={() => bodyClicked(7)}
-        />
+        <img src={lhand} alt="" className="absolute w-[90.5px] top-[99px] showOnHover" onClick={() => bodyClicked(7)} />
       </Tooltip>
       <Tooltip key="rArm" placement="right" content="Arms & Shoulder" color="danger" showArrow>
         <img

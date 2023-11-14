@@ -9,9 +9,9 @@
 
 .SymptomsListImg{
   position: fixed;
-  max-width: 35rem;
-  right: -10rem;
-  top: 2rem;
+  max-width: 30rem;
+  right: -7rem;
+  top: 5rem;
   opacity: 0.3;
 }
 
@@ -28,4 +28,11 @@
   animation-fill-mode: forwards;
   -webkit-animation-direction: alternate;
   animation-direction: alternate;
+}
+
+.LinkTopButton{
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 3;
 }

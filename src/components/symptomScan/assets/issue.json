@@ -1,0 +1,69 @@
+{
+  "Diagnosis": [
+    {
+      "Issue": {
+        "ID": 135,
+        "Name": "Nerve compression in the wrist",
+        "Accuracy": 90,
+        "Icd": "G56.0",
+        "IcdName": "Carpal tunnel syndrome",
+        "ProfName": "Carpal tunnel syndrome",
+        "Ranking": 1
+      },
+      "Specialisation": [
+        { "ID": 15, "Name": "General practice", "SpecialistID": 3 },
+        { "ID": 20, "Name": "Hand surgery", "SpecialistID": 20 },
+        { "ID": 31, "Name": "Orthopedics", "SpecialistID": 77 }
+      ],
+      "Info": {
+        "Description": "Carpal tunnel is located on the inside part of the wrist.  The carpal tunnel is a canal that is surrounded on one side by the carpal bones and on the other side by ligaments.  Tendons and nerves run through this canal. If the canal becomes too narrow, then increased pressure and constriction of the nerves result in typical symptoms. Narrowing of the canal can have many results that are not always associated with a medical condition. For example, narrowing of the canal can be caused by the swelling of soft tissues during pregnancy, from regular physical work with the hands, or due to other conditions that involve the swelling of the hands.",
+        "DescriptionShort": "Carpal tunnel syndrome is often experienced as sensations of paresthesia or numbness in the hand that occur during vigorous activities. The reason for these sensations is the constriction of a nerve called the nervus medianus.",
+        "MedicalCondition": "Most female patients tend to feel paresthesia (numbness, tingling) at the onset of carpal tunnel syndrome during strenuous activities like bicycle riding, as well as pains in the fingers and palms. Later, symptoms occur even at night. Patients often report alleviation of symptoms when shaking their hands out.",
+        "Name": "Nerve compression in the wrist",
+        "PossibleSymptoms": "Numbness of the hands,Tingling,Muscular atrophy of the arm,Hand pain,Limited mobility of the fingers,Muscular weakness in the arm,Numbness in the arm,Hand swelling,Arm swelling",
+        "ProfName": "Carpal tunnel syndrome",
+        "Synonyms": "CTS",
+        "TreatmentDescription": "Due to damage to the nerves, in the later stages carpal tunnel syndrome can result in muscular atrophy of the thumb. Early treatment can prevent this. Treatment usually begins with wearing bandages, taking anti-inflammatory medication, and cold therapy to improve symptoms. In later stages of carpal tunnel syndrome, operation is common. Operation involves dividing the constricted ligament in two. This involves a small operation with very good chances of success."
+      }
+    },
+    {
+      "Issue": {
+        "ID": 314,
+        "Name": "Raynaud's disease",
+        "Accuracy": 33.84,
+        "Icd": "I73.0",
+        "IcdName": "Raynaud syndrome",
+        "ProfName": "Raynaud's phenomenon",
+        "Ranking": 2
+      },
+      "Specialisation": [
+        { "ID": 15, "Name": "General practice", "SpecialistID": 3 },
+        { "ID": 41, "Name": "Rheumatology", "SpecialistID": 67 }
+      ],
+      "Info": {
+        "Description": "Raynaud's disease is a rare disorder of the blood vessels that usually involves the fingers or toes. It causes the blood vessels to narrow when people feel cold or stressed. When this happens, the affected areas will be undersupplied with blood and will therefore turn white and blue. When the blood starts to flow normally again, people may feel a tingling and numbness.",
+        "DescriptionShort": "Raynaud’s disease is a disorder of the blood vessels. It can be either the primary or secondary type. The treatments include lifestyle changes, medication to keep the blood vessels open and, rarely, surgery.",
+        "MedicalCondition": "The cause of Raynaud’s disease is a failure in regulation of the blood flow by the vegetative nervous system. It occurs five times more frequently in women than in men. Raynaud’s disease can be classified into two types: 1) Primary Raynaud’s disease: the cause is not well known. It is more common than secondary Raynaud’s disease and it is not as severe as the secondary type. 2) Secondary Raynaud’s disease: it can be caused by other diseases (such as sclerodermia and lupus erythematodes), conditions or factors, which can affect the normal function of the blood vessels (such as traumas, high physical stress, betablocker). Common conditions such as stress or cold temperatures may result in an episode of Raynaud’s disease. When Raynaud’s disease occurs, it narrows the blood vessels and prevents the blood from flowing into the vessels and, as a result, the skin will become firstly white and secondly blue for a while. Then when the blood starts to flow again, the affected area will become red and warm again. There may be a tingling sensation in the affected area, as well as itchiness or numbness.",
+        "Name": "Raynaud's disease",
+        "PossibleSymptoms": "Limited mobility of the fingers,Numbness of the hands,Foot pain,Hand pain,Cold feet,Sensitivity to cold,Hand swelling,Cold hands,Blue colored skin",
+        "ProfName": "Raynaud's phenomenon",
+        "Synonyms": "White finger,Dead finger",
+        "TreatmentDescription": "Raynaud’s disease is mainly harmless and does not need specific treatment. However, an underlying disease should be excluded. The symptomatic treatment of Raynaud’s disease includes: 1) Lifestyle changes: it is recommended to avoid emotional stress or exposure to extremely cold temperature. 2) Medications: it is often used to improve the blood flow to the affected parts, for example, calcium channel blockers, alpha blockers and ACE inhibitors are often used. 3) Surgery: in severe cases surgery can be helpful. The aim of surgery is to disconnect the sympathetic nerve fibers from the blood vessels in order to get rid of their constrictive effect on the arteries."
+      }
+    }
+  ],
+  "Specialisations": [
+    { "ID": 15, "Name": "General practice", "Accuracy": 90, "Ranking": 0 },
+    { "ID": 20, "Name": "Hand surgery", "Accuracy": 65.4069748, "Ranking": 0 },
+    { "ID": 31, "Name": "Orthopedics", "Accuracy": 65.4069748, "Ranking": 0 },
+    { "ID": 41, "Name": "Rheumatology", "Accuracy": 24.5930233, "Ranking": 0 }
+  ],
+  "ProposedSymptoms": [
+    { "ID": 221, "Name": "Numbness in the arm" },
+    { "ID": 168, "Name": "Muscular weakness in the arm" },
+    { "ID": 201, "Name": "Tingling" },
+    { "ID": 178, "Name": "Limited mobility of the fingers" },
+    { "ID": 89, "Name": "Cold feet" },
+    { "ID": 202, "Name": "Muscular atrophy of the arm" }
+  ]
+}

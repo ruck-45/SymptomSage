@@ -18,16 +18,11 @@ import { useNavigate } from "react-router-dom";
 
 // Local Files
 import SymptomsCardAccordion from "./SymptomsCardAccordion";
+import { symptom } from "../utils/customTypes";
 
 type SymptomsCardProps = {
   className?: string;
-  symptoms: {
-    Name: string;
-    Symptoms: {
-      Name: string;
-      ID: number;
-    }[];
-  }[];
+  symptoms: symptom;
   setSymptoms: Function;
   setSymptomsIds: Function;
   setDiagnosisToken: Function;

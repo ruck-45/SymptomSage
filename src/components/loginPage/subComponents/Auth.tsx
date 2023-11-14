@@ -26,7 +26,44 @@ const Auth = (props: AuthProps) => {
   };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    event.preventDefault();
+    // event.preventDefault();
+  };
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [username, setUsername] = useState("");
+
+  const [emailState, setEmailState] = useState(false);
+  const [passwordState, setPasswordState] = useState(false);
+  const [confirmPasswordState, setConfirmPasswordState] = useState(false);
+  const [usernameState, setUsernameState] = useState(false);
+
+  const emailRe: RegExp = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-]+)(\.[a-zA-Z]{2,5}){1,2}$/;
+
+  const checkEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value); // change when we use cross button
+    const validity = email.match(emailRe);
+    if (validity){
+      setEmailState(false);
+    }
+    else{
+      setEmailState(true);
+    }
+  };
+  const checkPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+  const checkConfirmPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setConfirmPassword((prev)=>event.target.value); // has errors
+    if(confirmPassword==password){
+      setConfirmPasswordState(false)
+    }else{
+      setConfirmPasswordState(true)
+    }
+  };
+  const checkUsername = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(event.target.value);
   };
 
   return (
@@ -47,6 +84,9 @@ const Auth = (props: AuthProps) => {
         isClearable
         className={authStatus ? "hidden" : ""}
         onKeyDown={handleKeyPress}
+        isInvalid={usernameState}
+        errorMessage={usernameState ? "Invalid UserName" : ""}
+        onChange={checkUsername}
       />
       <Input
         type="email"
@@ -55,6 +95,9 @@ const Auth = (props: AuthProps) => {
         placeholder="Enter your email"
         isClearable
         onKeyDown={handleKeyPress}
+        isInvalid={emailState}
+        errorMessage={emailState ? "Invalid Email" : ""}
+        onChange={checkEmail}
       />
       <Input
         label="Password"
@@ -71,6 +114,9 @@ const Auth = (props: AuthProps) => {
         }
         type={isVisible ? "text" : "password"}
         onKeyDown={handleKeyPress}
+        isInvalid={passwordState}
+        errorMessage={passwordState ? "Invalid Password" : ""}
+        onChange={checkPassword}
       />
       <Input
         label="Confirm Password"
@@ -80,6 +126,9 @@ const Auth = (props: AuthProps) => {
         endContent={<button className="focus:outline-none" type="button" onClick={toggleVisibility}></button>}
         type={isVisible ? "text" : "password"}
         onKeyDown={handleKeyPress}
+        isInvalid={confirmPasswordState}
+        errorMessage={confirmPasswordState ? "Did Not Match" : ""}
+        onChange={checkConfirmPassword}
       />
       <a href="#" className={authStatus ? "text-xs text-right" : "hidden"} style={{ color: "#006FEE" }}>
         Forgot Password?

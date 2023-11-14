@@ -3,6 +3,7 @@ import { Card, CardHeader, CardBody, CheckboxGroup } from "@nextui-org/react";
 
 // Local Files
 import { CustomCheckbox } from "./CustomCheckbox";
+import { symptomsid, symptomData } from "../utils/customTypes";
 
 type SubLocationCardProps = {
   className?: string;
@@ -11,17 +12,8 @@ type SubLocationCardProps = {
   setSymptoms: Function;
   setSymptomsIds: Function;
   painpointid: number;
-  symptoms: {
-    ID: number;
-    Name: string;
-    HasRedFlag: boolean;
-    HealthSymptomLocationIDs: number[];
-    ProfName: string;
-    Synonyms: string[];
-  }[];
-  symptomsids: {
-    [key: number]: boolean;
-  };
+  symptoms: symptomData;
+  symptomsids: symptomsid;
 };
 
 const SubLocationCard = (props: SubLocationCardProps) => {

@@ -1,7 +1,11 @@
+// Dependencies
 import { useCheckbox, Chip, VisuallyHidden, tv } from "@nextui-org/react";
+import { useState } from "react";
+
+// Local Files
 import CheckIcon from "./CheckIcon";
 import { painPointNames } from "../utils/painPointNames";
-import { useState } from "react";
+import { symptomsid, symptom } from "../utils/customTypes";
 
 const checkbox = tv({
   slots: {
@@ -23,10 +27,6 @@ const checkbox = tv({
   },
 });
 
-type prevSymptomsIdType = {
-  [key: number]: boolean;
-};
-
 type CustomCheckboxProps = {
   className?: string;
   children: string;
@@ -36,15 +36,7 @@ type CustomCheckboxProps = {
   painpointid: number;
   symptomsid: number;
   symptomsname: string;
-  symptomsids: prevSymptomsIdType;
-};
-
-type prevSymptomsOb = {
-  Name: string;
-  Symptoms: {
-    Name: string;
-    ID: number;
-  }[];
+  symptomsids: symptomsid;
 };
 
 export const CustomCheckbox = (props: CustomCheckboxProps) => {
@@ -64,7 +56,7 @@ export const CustomCheckbox = (props: CustomCheckboxProps) => {
 
   const saveSymptom = () => {
     if (isSelected) {
-      props.setsymptoms((prevState: prevSymptomsOb[]) => {
+      props.setsymptoms((prevState: symptom) => {
         let updatedSymptoms = prevState.map((ob) => {
           if (ob.Name === painPointNames[props.painpointid]) {
             return {
@@ -80,7 +72,7 @@ export const CustomCheckbox = (props: CustomCheckboxProps) => {
         return updatedSymptoms;
       });
 
-      props.setsymptomsids((prevSymptomsIds: prevSymptomsIdType) => {
+      props.setsymptomsids((prevSymptomsIds: symptomsid) => {
         let updatedSymptomsIds = { ...prevSymptomsIds };
         delete updatedSymptomsIds[props.symptomsid];
         return updatedSymptomsIds;
@@ -91,7 +83,7 @@ export const CustomCheckbox = (props: CustomCheckboxProps) => {
         ID: props.symptomsid,
       };
 
-      props.setsymptoms((prevState: prevSymptomsOb[]) => {
+      props.setsymptoms((prevState: symptom) => {
         const painpointExists = prevState.some((ob) => ob.Name === painPointNames[props.painpointid]);
 
         if (painpointExists) {
@@ -109,7 +101,7 @@ export const CustomCheckbox = (props: CustomCheckboxProps) => {
         }
       });
 
-      props.setsymptomsids((prevSymptomsIds: prevSymptomsIdType) => {
+      props.setsymptomsids((prevSymptomsIds: symptomsid) => {
         let updatedSymptomsIds = { ...prevSymptomsIds };
         updatedSymptomsIds[props.symptomsid] = true;
 

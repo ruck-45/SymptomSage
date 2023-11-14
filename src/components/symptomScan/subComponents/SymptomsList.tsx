@@ -1,5 +1,7 @@
 // Dependencies
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { Button } from "@nextui-org/react";
 import {
   GiAbstract002,
   GiAbstract005,
@@ -12,23 +14,23 @@ import {
   GiAbstract016,
   GiAbstract018,
 } from "react-icons/gi";
+import { BiSolidArrowToTop } from "react-icons/bi";
 
 // Local Flies
 import "./SymptomsList.css";
 import lion from "../assets/lionimg.svg";
 import SubLocationCard from "./SubLocationCard";
 import symptomsdata from "../assets/data.json";
+import { directory, symptomsid, iconType } from "../utils/customTypes";
 
 type SymptomsListProps = {
   setSymptoms: Function;
   setSymptomsIds: Function;
-  symptomsids: {
-    [key: number]: boolean;
-  };
-};
-
-type iconType = {
-  [key: number]: JSX.Element;
+  setDirectories: Function;
+  symptomsids: symptomsid;
+  age: number;
+  sex: string;
+  directories: directory;
 };
 
 const iconClass = "text-5xl bg-black text-white p-2 rounded-xl";
@@ -47,8 +49,21 @@ const icons: iconType = {
 };
 
 const SymptomsList = (props: SymptomsListProps) => {
+  const curDir: directory = [
+    { name: "Symptom Scan", path: "/Home/SymptomScan/SymptomsForm" },
+    { name: "Symptoms List", path: "/Home/SymptomScan/SymptomsList" },
+  ];
+
+  useEffect(() => {
+    props.setDirectories((prev: directory) => curDir);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
   const location = useLocation();
-  const { id, age, sex } = location.state;
+  const { id } = location.state;
   const data = symptomsdata.data; // fetch data from backend here
 
   let iconNumber = 0;
@@ -77,6 +92,20 @@ const SymptomsList = (props: SymptomsListProps) => {
           </SubLocationCard>
         );
       })}
+      <Button
+        isIconOnly
+        color="danger"
+        aria-label="LinkTop"
+        className="LinkTopButton"
+        onClick={() =>
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          })
+        }
+      >
+        <BiSolidArrowToTop className="text-5xl text-white p-2 rounded-xl" />
+      </Button>
     </div>
   );
 };

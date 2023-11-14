@@ -10,13 +10,14 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 // Local Files
 import "./SymptomsForm.css";
 import Body from "./Body";
 import S2Card from "./S2Card";
 import SymptomsCard from "./SymptomsCard";
-import { useState } from "react";
+import { directory, symptom } from "../utils/customTypes";
 
 type symptomsFormProps = {
   setSymptomsToken: Function;
@@ -26,19 +27,25 @@ type symptomsFormProps = {
   sex: string;
   setAge: Function;
   setSex: Function;
-  symptoms: {
-    Name: string;
-    Symptoms: {
-      Name: string;
-      ID: number;
-    }[];
-  }[];
+  symptoms: symptom;
   setSymptoms: Function;
   setSymptomsIds: Function;
   setDiagnosisToken: Function;
+  setDirectories: Function;
+  directories: directory;
 };
 
 const SymptomsForm = (props: symptomsFormProps) => {
+  const curDir: directory = [{ name: "Symptom Scan", path: "/Home/SymptomScan/SymptomsForm" }];
+
+  useEffect(() => {
+    props.setDirectories((prev: directory) => curDir);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [painpoint, setPainpoint] = useState(-1);
 
@@ -67,8 +74,6 @@ const SymptomsForm = (props: symptomsFormProps) => {
         </div>
         <Body
           className="bob-on-hover"
-          age={props.age}
-          sex={props.sex}
           setSymptomsToken={props.setSymptomsToken}
           infoToken={props.infoToken}
           onOpen={onOpen}
@@ -103,7 +108,7 @@ const SymptomsForm = (props: symptomsFormProps) => {
                     onClose();
                     props.setInfoToken(true);
                     props.setSymptomsToken(true);
-                    navigate("../SymptomsList", { state: { id: painpoint, age: props.age, sex: props.sex } });
+                    navigate("../SymptomsList", { state: { id: painpoint } });
                   }}
                 >
                   Yes, I Have
