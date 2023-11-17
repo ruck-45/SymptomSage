@@ -1,5 +1,5 @@
 {
-  "Diagnosis": [
+  "data": [
     {
       "Issue": {
         "ID": 135,
@@ -28,13 +28,38 @@
     },
     {
       "Issue": {
+        "ID": 150,
+        "Name": "Simultaneous malfunction of peripheral nerves",
+        "Accuracy": 63,
+        "Icd": "G60;G61;G62;G63;G64",
+        "IcdName": "Hereditary and idiopathic neuropathy;Inflammatory polyneuropathy;Other polyneuropathies;Polyneuropathy in diseases classified elsewhere;Other disorders of peripheral nervous system",
+        "ProfName": "Polyneuropathy",
+        "Ranking": 2
+      },
+      "Specialisation": [
+        { "ID": 15, "Name": "General practice", "SpecialistID": 3 },
+        { "ID": 27, "Name": "Neurology", "SpecialistID": 45 }
+      ],
+      "Info": {
+        "Description": "Polyneuropathy is a disease of the nerves which are responsible for movement in the arms and legs and also for the sense of touch. The patient suffers from weakness in certain muscle groups as well as issues with sensation and touch in the arms and legs. Various underlying causes may be behind polyneuropathy, such as diabetes, alcoholism, certain infections, vitamin B12 deficiency, and certain inherited diseases.",
+        "DescriptionShort": "Polyneuropathy is the malfunctioning of numerous peripheral nerves located at various parts of the body. This malfunctioning occurs at the same time and can have various causes. The condition can be considered acute when it starts suddenly and chronic when it develops progressively, over a long period.",
+        "MedicalCondition": "Patients start off experiencing paresthesia (like ants crawling across the skin) around the toes or soles at night, as well as feeling as though they are wearing socks when they are not. Digits on both sides of the body are affected. Later, paralysis of small and large muscles of the foot sets in, which manifests as the feeling that the tip of the foot is getting caught on something while walking. The arms are generally affected much later in the course of the disease.",
+        "Name": "Simultaneous malfunction of peripheral nerves",
+        "PossibleSymptoms": "Hand pain,Limited mobility of the fingers,Muscular atrophy of the arm,Muscular weakness in the arm,Numbness of the hands,Numbness in the arm,Pain in the limbs,Tingling,Numbness in the leg,Non-healing skin wound,Muscular weakness in the leg,Muscular atrophy in the leg,Muscle weakness,Muscle pain,Moist and softened skin,Limited mobility of the ankle,Leg ulcer,Increased touch sensitivity,Impairment of male potency,Foot pain,Cold hands,Cold feet,Changes in the nails,Tremor at rest",
+        "ProfName": "Polyneuropathy",
+        "Synonyms": "",
+        "TreatmentDescription": "Treatment is dependening on the cause. Because diabetes can lead as well to polyneuropathy, regulating the blood sugar is important. Consumption of alcohol should be avoided. To treat the pain various medications can be used."
+      }
+    },
+    {
+      "Issue": {
         "ID": 314,
         "Name": "Raynaud's disease",
-        "Accuracy": 33.84,
+        "Accuracy": 57.6,
         "Icd": "I73.0",
         "IcdName": "Raynaud syndrome",
         "ProfName": "Raynaud's phenomenon",
-        "Ranking": 2
+        "Ranking": 3
       },
       "Specialisation": [
         { "ID": 15, "Name": "General practice", "SpecialistID": 3 },
@@ -50,20 +75,108 @@
         "Synonyms": "White finger,Dead finger",
         "TreatmentDescription": "Raynaud’s disease is mainly harmless and does not need specific treatment. However, an underlying disease should be excluded. The symptomatic treatment of Raynaud’s disease includes: 1) Lifestyle changes: it is recommended to avoid emotional stress or exposure to extremely cold temperature. 2) Medications: it is often used to improve the blood flow to the affected parts, for example, calcium channel blockers, alpha blockers and ACE inhibitors are often used. 3) Surgery: in severe cases surgery can be helpful. The aim of surgery is to disconnect the sympathetic nerve fibers from the blood vessels in order to get rid of their constrictive effect on the arteries."
       }
+    },
+    {
+      "Issue": {
+        "ID": 103,
+        "Name": "Slipped disc",
+        "Accuracy": 54,
+        "Icd": "M51.2",
+        "IcdName": "Other specified intervertebral disc displacement",
+        "ProfName": "Spinal disc herniation",
+        "Ranking": 4
+      },
+      "Specialisation": [
+        { "ID": 15, "Name": "General practice", "SpecialistID": 3 },
+        { "ID": 31, "Name": "Orthopedics", "SpecialistID": 77 },
+        { "ID": 41, "Name": "Rheumatology", "SpecialistID": 67 }
+      ],
+      "Info": {
+        "Description": "A herniated disc (also known as a slipped disc or spinal disc herniation) is when a disc bulges out between the vertebrae of the spinal cord and presses against the spinal cord nerve.  Spinal discs lose elasticity with age and can tear with sudden, awkward movements while carrying heavy loads (e.g. lifting heavy weights with a bent back) and then bulge out into the spinal canal.  This compresses the spinal nerve root.  The lumbar vertebrae are usually the ones affected (technically known at L5/S1, L4/L5)",
+        "DescriptionShort": "A herniated disc (or a slipped disc) is a medical condition in which a part of the disc between the vertebrae of the spine protrudes out and puts pressure on the nerve of the spinal cord. This causes a radiating pain.",
+        "MedicalCondition": "Patients usually feel pain in the lumbar vertebrae after a clumsy movement. The pain then spreads to the buttocks, then the upper thigh, and can even radiate down the entire leg. In serious cases, patients may experience lack of sensation or even paralysis.",
+        "Name": "Slipped disc",
+        "PossibleSymptoms": "Limited mobility of the back,Numbness of the hands,Pain in the limbs,Tingling,Muscular weakness in the arm,Muscular weakness in the leg,Neck pain,Back pain,Pain radiating to the leg,Pain radiating to the arm,Numbness in the arm,Numbness in the leg,Lower-back pain,Immobilization,Uncontrolled defecation,Limited mobility of the leg,Leg pain,Neck stiffness",
+        "ProfName": "Spinal disc herniation",
+        "Synonyms": "Disc herniation",
+        "TreatmentDescription": "After having the herniated disc confirmed through special imaging (MRI, magnetic resonance imaging), pain medication and bed rest can help to reduce pain. Heat therapy and massage can also help to loosen up the muscles around the herniated disc. To prevent recurrence, behavioral training ('back school') is recommended. In more severe cases, where a sense of failure or even paralysis is present, surgery is required."
+      }
+    },
+    {
+      "Issue": {
+        "ID": 467,
+        "Name": "Nerve root irritation of the cervical spine",
+        "Accuracy": 54,
+        "Icd": "G54",
+        "IcdName": "Nerve root and plexus disorders",
+        "ProfName": "Cervical radiculopathy",
+        "Ranking": 5
+      },
+      "Specialisation": [
+        { "ID": 15, "Name": "General practice", "SpecialistID": 3 },
+        { "ID": 27, "Name": "Neurology", "SpecialistID": 45 },
+        { "ID": 31, "Name": "Orthopedics", "SpecialistID": 77 }
+      ],
+      "Info": {
+        "Description": "Nerve root irritation of the cervical spine is a condition when the nerve root of the cervical spine is irritated by compression, inflammation or spinal injuries. Nerve root irritation of the cervical spine will cause neck pain and neurological symptoms in the area of innervations of the affected nerve root such as pain, muscular weakness and loss of sensation. The location of these neurological symptoms depends on which nerve root is irritated and can either be in the neck, upper extremities or the chest.",
+        "DescriptionShort": "Nerve root irritation of the cervical spine will cause neck pain and neurological symptoms along the neck, upper extremities and the chest. It can result from any type of condition that irritates a nerve root in the cervical spine canal or the neural foramen. Proper treatment can relieve the symptoms. Treatments include medications, physical therapy or surgery.",
+        "MedicalCondition": "The causes of nerve root irritation in cervical spine can be various, for example: 1) herniation of the cervical discs can compress and irritate the nerve root, 2) stenosis caused by bone spurs, arthritis and other degenerative processes of the spine can narrow the intervertebral foramina, the exit where the spinal nerves leave the spine canal, and therefore lead to compression of the nerve root: the condition happens mostly with elderly persons, 3) nerve root irritation caused by certain spinal injuries and traumas: the condition occurs in young people and can result in disc rupture, 4) Inflammations of the nerve root due to an Infection, a tumor or bleeding in the respective area. Normally a nerve root irritation of the cervical spine will cause symptoms such as pain of the upper extremities i.e. the neck, the shoulders, arms, hands, fingers and even chest and upper back. Additionally, symptoms such as muscle weakness, tingling and loss of sensation in the upper extremities are also common. The location of these symptoms depends on which nerve root is affected.",
+        "Name": "Nerve root irritation of the cervical spine",
+        "PossibleSymptoms": "Pain radiating to the arm,Neck pain,Muscular weakness in the arm,Numbness in the arm,Numbness of the hands,Pain in the limbs,Muscular atrophy of the arm,Arm pain",
+        "ProfName": "Cervical radiculopathy",
+        "Synonyms": "",
+        "TreatmentDescription": "An irritation of the cervical root nerve can mostly be confirmed after an image study has been performed. The treatments include medication, physical therapy and surgery. Medications such as anti-inflammatory drugs and painkillers can relieve the symptoms. Physical therapy can help regain muscle strength as well as reduce pain. In severe cases, surgery to decompress the affected nerve root will be necessary."
+      }
+    },
+    {
+      "Issue": {
+        "ID": 325,
+        "Name": "Ulnar nerve entrapment",
+        "Accuracy": 36,
+        "Icd": "G56.2",
+        "IcdName": "Lesion of ulnar nerve",
+        "ProfName": "Cubital tunnel syndrome",
+        "Ranking": 6
+      },
+      "Specialisation": [
+        { "ID": 15, "Name": "General practice", "SpecialistID": 3 },
+        { "ID": 31, "Name": "Orthopedics", "SpecialistID": 77 }
+      ],
+      "Info": {
+        "Description": "Ulnar nerve entrapment, or cubital tunnel syndrome, is a condition that involves stretching or pressure to the ulnar nerve. The common symptoms of cubital tunnel syndrome include numbness or unresponsiveness and tingling in the little finger and ring finger. The nerve runs in a groove on the inner side of the elbow. Baseball pitchers are among the persons who are likely to develop the condition. This is because these players have to twist their hands in order to throw a slider. This motion can injury delicate ligaments that are within the elbow. The entrapment of the ulnar nerve is the second most common cause of nerve entrapment in the body. The most common is carpal tunnel syndrome with entrapment of the median nerve.",
+        "DescriptionShort": "Ulnar nerve entrapment is a condition due to irritation and compression of the ulnar nerve (nervus ulnaris) of the arm. The cause is mostly located at the cubital tunnel (sulcus ulnaris), where the nerve is most exposed to outer influences. The ulnar nerve is located in the arms so the symptoms often affect the fingers, hands, forearms and elbows. People with the problem are usually treated with medication such as non-steroidal anti-inflammatory drugs (NSAIDs), wearing splints, occupational therapy and in some cases surgery.",
+        "MedicalCondition": "The main cause of ulnar nerve entrapment is the compression of the ulnar nerve in the cubital tunnel (sulcus ulnaris). There are many conditions that can cause compression of the ulnar nerve. For example, keeping the elbow bent for a long period may compress the ulnar nerve and then lead to ulnar nerve entrapment. In addition, fractures, bone spurs, swelling of the elbow joint, cysts near the elbow joint and repetitive activities may also increase the risk of getting the condition. Since the ulnar nerve can affect movement and sensation, if it is injured an abnormal sensation and weakness in some muscles may occur. The common symptoms include: weakness or muscular atrophy in the hand (especially the abduction of the fourth finger is weakened), tingling or numbness in the palm and fourth or fifth finger, sensitivity to cold and tenderness in the elbow joint. A typical phenomenon is a tingling sensation in the fourth finger during percussion of the cubital tunnel.",
+        "Name": "Ulnar nerve entrapment",
+        "PossibleSymptoms": "Numbness of the hands,Tingling,Finger deformity,Pain radiating to the arm,Arm pain,Numbness in the arm",
+        "ProfName": "Cubital tunnel syndrome",
+        "Synonyms": "",
+        "TreatmentDescription": "The treatment of ulnar nerve entrapment includes medication, accessory appliances, occupational therapy and sometimes surgery. Generally speaking, medication such as non-steroidal anti-inflammatory drugs (NSAIDs) may be used to reduce the pain and inflammation. Also, wearing splints can help to immobilize the elbow to facilitate recovery. Occupational therapy may be recommended to strengthen and regain muscle power. In some cases, surgery may also be considered in order to relieve discomfort."
+      }
+    },
+    {
+      "Issue": {
+        "ID": 238,
+        "Name": "Frostbite",
+        "Accuracy": 16.1999989,
+        "Icd": "T33;T34;T35",
+        "IcdName": "Superficial frostbite;Frostbite with tissue necrosis;Frostbite involving multiple body regions and unspecified frostbite",
+        "ProfName": "Congelatio",
+        "Ranking": 7
+      },
+      "Specialisation": [
+        { "ID": 15, "Name": "General practice", "SpecialistID": 3 },
+        { "ID": 19, "Name": "Internal medicine", "SpecialistID": 4 }
+      ],
+      "Info": {
+        "Description": "Frostbite is an overexposure of a human's skin and the underlying tissues to cold temperatures, which causes freezing. The condition occurs usually on the skin of the chin, cheeks, ears, nose, toes, and fingers. Exposed skin to cold temperatures and wind poses the biggest risk to the condition as it makes it vulnerable. However, frostbite can also develop on a person's skin that is covered by gloves or further tissues. Frostbite requires medical attention since it can destroy skin, tissues, muscles, and bones. Severe frostbite is dangerous and can lead to further complications such as nerve damage and infection.",
+        "DescriptionShort": "Frostbite is an injury caused by overexposure of human tissue to cold temperatures. It often starts with mild symptoms and gradually becomes more severe. The first aid is to rewarm the affected areas and to give painkillers. In severe cases, surgery may be necessary.",
+        "MedicalCondition": "The cause of frostbite is overexposure to cold temperatures. Some factors can increase the risk of getting frostbite. For example, 1) poor blood circulation, 2) certain illnesses and drugs and 3) life style factors such as smoking and alcohol consumption. People with frostbite may experience symptoms like numbness, pain, redness or whiteness of the affected area and abnormal sensations on the skin. If the frostbite becomes severe, then the color of the affected area may even turn purple or black due to poor circulation. In severe cases, frostbite may result in permanent damage and the death of the affected tissue.",
+        "Name": "Frostbite",
+        "PossibleSymptoms": "Formation of blisters on a skin area,Skin redness,Cold feet,Cold hands,Hand pain,Earache,Limited mobility of the fingers,Foot pain,Blue colored skin,Wound,Chills,Sensitivity to cold,Numbness of the hands,Tingling",
+        "ProfName": "Congelatio",
+        "Synonyms": "",
+        "TreatmentDescription": "The treatment of frostbite includes warming up the frostbitten areas with warm water, relieving the pain with painkillers, and dressing and protecting the wound. Warming up the core temperature by drinking hot beverages also helps. Antibiotics are rarely used to prevent infections. If the frostbite results in damage of the affected area, then surgery is necessary."
+      }
     }
-  ],
-  "Specialisations": [
-    { "ID": 15, "Name": "General practice", "Accuracy": 90, "Ranking": 0 },
-    { "ID": 20, "Name": "Hand surgery", "Accuracy": 65.4069748, "Ranking": 0 },
-    { "ID": 31, "Name": "Orthopedics", "Accuracy": 65.4069748, "Ranking": 0 },
-    { "ID": 41, "Name": "Rheumatology", "Accuracy": 24.5930233, "Ranking": 0 }
-  ],
-  "ProposedSymptoms": [
-    { "ID": 221, "Name": "Numbness in the arm" },
-    { "ID": 168, "Name": "Muscular weakness in the arm" },
-    { "ID": 201, "Name": "Tingling" },
-    { "ID": 178, "Name": "Limited mobility of the fingers" },
-    { "ID": 89, "Name": "Cold feet" },
-    { "ID": 202, "Name": "Muscular atrophy of the arm" }
   ]
 }

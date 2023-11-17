@@ -1,0 +1,65 @@
+@-webkit-keyframes bob-on-hover {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes bob-on-hover {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@-webkit-keyframes bob-on-hover-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes bob-on-hover-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+
+.yoga-bob-on-hover {
+  -webkit-animation-name: bob-on-hover;
+  animation-name: bob-on-hover;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
+
+.Diagnosis {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-image: linear-gradient(to right bottom, #faedf6, #eae4f0, #d8dbe9, #c7d2df, #b6cad3);
+}
+
+.IssueCard{
+    max-width: 50rem;
+}

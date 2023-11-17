@@ -1,0 +1,23 @@
+.Yoga {
+  /* background-image: url("../assets/yoga.svg");
+  background-repeat: no-repeat;
+  background-size: contain; */
+  height: 26.5rem;
+  width: 25rem;
+}
+
+.Yoga > * {
+  position: absolute;
+}
+
+.yogaimg{
+  opacity: 0.7;
+  cursor: pointer;
+  filter: drop-shadow(#6020a0 0rem 0rem 0.3rem);
+}
+
+.yogaimgHighlight {
+  opacity: 1;
+  scale: 1.01;
+  filter: drop-shadow(red 0rem 0rem 0.5rem);
+}

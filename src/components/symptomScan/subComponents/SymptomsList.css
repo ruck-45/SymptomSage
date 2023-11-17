@@ -1,21 +1,45 @@
-.SymptomsList {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  background-image: linear-gradient(to right bottom, #faedf6, #eae4f0, #d8dbe9, #c7d2df, #b6cad3);
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+@-webkit-keyframes bob-on-hover {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes bob-on-hover {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@-webkit-keyframes bob-on-hover-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes bob-on-hover-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
 }
 
-.SymptomsListImg{
-  position: fixed;
-  max-width: 30rem;
-  right: -7rem;
-  top: 5rem;
-  opacity: 0.3;
-}
-
-.bob-on-hover {
+.lion-bob-on-hover {
   -webkit-animation-name: bob-on-hover;
   animation-name: bob-on-hover;
   -webkit-animation-duration: 2.5s;
@@ -29,6 +53,24 @@
   -webkit-animation-direction: alternate;
   animation-direction: alternate;
 }
+
+.SymptomsList {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-image: linear-gradient(to right bottom, #faedf6, #eae4f0, #d8dbe9, #c7d2df, #b6cad3);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.SymptomsListImg{
+  position: fixed;
+  max-width: 30rem;
+  right: -7rem;
+  top: 10rem;
+  opacity: 0.3;
+}
+
 
 .LinkTopButton{
   position: fixed;

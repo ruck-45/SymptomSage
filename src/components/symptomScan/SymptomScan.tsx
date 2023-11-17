@@ -11,7 +11,7 @@ import Diagnosis from "./subComponents/Diagnosis";
 
 const SymptomScan = () => {
   const [symptomsToken, setSymptomsToken] = useState(false);
-  const [diagnosisToken, setDiagnosisToken] = useState(false);
+  const [diagnosisToken, setDiagnosisToken] = useState(true); // change this to false and also the default routing
 
   const [infoToken, setInfoToken] = useState(false);
   const [age, setAge] = useState(20);
@@ -28,7 +28,7 @@ const SymptomScan = () => {
         <Breadcrumbs size="lg" className="font-semibold">
           {directories.map((ob) => {
             return (
-              <BreadcrumbItem>
+              <BreadcrumbItem key={ob.name}>
                 <Link to={ob.path}>{ob.name}</Link>
               </BreadcrumbItem>
             );
@@ -36,7 +36,7 @@ const SymptomScan = () => {
         </Breadcrumbs>
       </div>
       <Routes>
-        <Route path="/" element={<Navigate to="./SymptomsForm" />} />
+        <Route path="/" element={<Navigate to="./Diagnosis" />} />
         <Route
           path="/SymptomsForm"
           element={

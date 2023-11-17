@@ -75,7 +75,7 @@ const SymptomsList = (props: SymptomsListProps) => {
 
   return (
     <div className="SymptomsList ps-[1rem] pe-[1rem] md:ps-[2rem] md:pe-[2rem] lg:ps-[5rem] lg:pe-[5rem]">
-      <img src={lion} alt="" className="SymptomsListImg hidden xl:block z-[1] bob-on-hover" />
+      <img src={lion} alt="" className="SymptomsListImg hidden xl:block z-[1] lion-bob-on-hover" />
       {data.map((ob): JSX.Element => {
         return (
           <SubLocationCard
