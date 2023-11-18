@@ -8,7 +8,7 @@ import head from "../assets/head.svg";
 import lhand from "../assets/lhand.svg";
 import lleg from "../assets/leftleg.svg";
 import rhand from "../assets/rhand.svg";
-import rleg from "../assets/rleg.svg";
+import rleg from "../assets/rightleg.svg";
 import abdomen from "../assets/abdomen.svg";
 import chest from "../assets/chest.svg";
 import symbol from "../assets/symbol.svg";
