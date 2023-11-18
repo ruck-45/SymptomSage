@@ -1,5 +1,4 @@
 // Dependencies
-import { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 // Local Files
@@ -8,8 +7,6 @@ import UserAuth from "./components/loginPage/UserAuth";
 import Home from "./components/homePage/Home";
 
 function App() {
-  const [loginStatus, loginStatusChanger] = useState("false");
-
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/Landing" />} />

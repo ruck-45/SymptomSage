@@ -116,6 +116,7 @@ const IssueCard = (props: IssueCardProps) => {
                     </li>
                   );
                 }
+                return null;
               })}
             </ul>
           </div>
