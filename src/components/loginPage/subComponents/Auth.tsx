@@ -1,9 +1,10 @@
 // Dependencies
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button, Input, Checkbox } from "@nextui-org/react";
 import { FaFacebook } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { AiFillGoogleCircle, AiFillInstagram } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 // Local Files
 import "./Auth.css";
@@ -16,7 +17,7 @@ type AuthProps = {
 };
 
 const Auth = (props: AuthProps) => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   const [authStatus, setauthStatus] = useState(props.authState);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -26,44 +27,118 @@ const Auth = (props: AuthProps) => {
   };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    // event.preventDefault();
+    if (event.key === "Enter") {
+      event.preventDefault();
+    }
   };
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [username, setUsername] = useState("");
+  const email = useRef("");
+  const password = useRef("");
+  const confirmPassword = useRef("");
+  const username = useRef("");
+
+  const [invalidPasswordMessage, setInvalidPasswordMessage] = useState("");
+  const [invalidUsernameMessage, setInvalidUsernameMessage] = useState("");
 
   const [emailState, setEmailState] = useState(false);
   const [passwordState, setPasswordState] = useState(false);
   const [confirmPasswordState, setConfirmPasswordState] = useState(false);
   const [usernameState, setUsernameState] = useState(false);
 
+  const evaluateSubmit = () => {
+    if (emailState || passwordState || email.current === "" || password.current === "") {
+      return false;
+    } else {
+      if (authStatus) {
+        return true;
+      } else {
+        if (confirmPasswordState || usernameState || confirmPassword.current === "" || username.current === "") {
+          return false;
+        } else {
+          return true;
+        }
+      }
+    }
+  };
+
   const emailRe: RegExp = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-]+)(\.[a-zA-Z]{2,5}){1,2}$/;
+  const passwordRe: RegExp = /^[a-zA-Z0-9!@#$&*^%_\-+]+$/;
+  const passwordSpclChar: RegExp = /[!@#$&*^%_\-+]/;
+  const passwordLowCase: RegExp = /[a-z]/;
+  const passwordHighCase: RegExp = /[A-Z]/;
+  const passwordDigit: RegExp = /[0-9]/;
 
   const checkEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value); // change when we use cross button
-    const validity = email.match(emailRe);
-    if (validity){
+    email.current = event.target.value;
+    const validity = email.current.match(emailRe);
+
+    if (validity) {
       setEmailState(false);
-    }
-    else{
+    } else {
       setEmailState(true);
     }
   };
+
   const checkPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
-  const checkConfirmPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setConfirmPassword((prev)=>event.target.value); // has errors
-    if(confirmPassword==password){
-      setConfirmPasswordState(false)
-    }else{
-      setConfirmPasswordState(true)
+    password.current = event.target.value;
+
+    if (password.current.length < 8) {
+      setPasswordState(true);
+      setInvalidPasswordMessage("Password should have a minimum length of 8 characters");
+    } else if (password.current.match(passwordSpclChar) === null) {
+      setPasswordState(true);
+      setInvalidPasswordMessage("Include at least one special character (!@#$&*^%_-+)");
+    } else if (password.current.match(passwordLowCase) === null) {
+      setPasswordState(true);
+      setInvalidPasswordMessage("Include at least one lowercase letter");
+    } else if (password.current.match(passwordHighCase) === null) {
+      setPasswordState(true);
+      setInvalidPasswordMessage("Include at least one uppercase letter");
+    } else if (password.current.match(passwordDigit) === null) {
+      setPasswordState(true);
+      setInvalidPasswordMessage("Include at least one digit in your password");
+    } else if (password.current.match(passwordRe) === null) {
+      setPasswordState(true);
+      setInvalidPasswordMessage("Password includes invalid character(s)");
+    } else {
+      setPasswordState(false);
+      setInvalidPasswordMessage("");
     }
   };
+
+  const checkConfirmPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    confirmPassword.current = event.target.value;
+
+    if (confirmPassword.current === password.current) {
+      setConfirmPasswordState(false);
+    } else {
+      setConfirmPasswordState(true);
+    }
+  };
+
   const checkUsername = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUsername(event.target.value);
+    username.current = event.target.value;
+
+    if (username.current.length < 3) {
+      setUsernameState(true);
+      setInvalidUsernameMessage("Username should have a minimum length of 3 characters");
+    } else {
+      setUsernameState(false);
+      setInvalidUsernameMessage("");
+    }
+  };
+
+  const navigate = useNavigate();
+
+  const submitAuth = () => {
+    const submitStat = evaluateSubmit();
+    if (submitStat) {
+      // Perform Submit operation here
+      navigate("../Home");
+    } else {
+      // cancle submit option here
+      console.log("cancled");
+    }
   };
 
   return (
@@ -85,7 +160,7 @@ const Auth = (props: AuthProps) => {
         className={authStatus ? "hidden" : ""}
         onKeyDown={handleKeyPress}
         isInvalid={usernameState}
-        errorMessage={usernameState ? "Invalid UserName" : ""}
+        errorMessage={usernameState ? invalidUsernameMessage : ""}
         onChange={checkUsername}
       />
       <Input
@@ -96,7 +171,7 @@ const Auth = (props: AuthProps) => {
         isClearable
         onKeyDown={handleKeyPress}
         isInvalid={emailState}
-        errorMessage={emailState ? "Invalid Email" : ""}
+        errorMessage={emailState ? "Please enter a valid Email" : ""}
         onChange={checkEmail}
       />
       <Input
@@ -115,7 +190,7 @@ const Auth = (props: AuthProps) => {
         type={isVisible ? "text" : "password"}
         onKeyDown={handleKeyPress}
         isInvalid={passwordState}
-        errorMessage={passwordState ? "Invalid Password" : ""}
+        errorMessage={passwordState ? invalidPasswordMessage : ""}
         onChange={checkPassword}
       />
       <Input
@@ -127,16 +202,16 @@ const Auth = (props: AuthProps) => {
         type={isVisible ? "text" : "password"}
         onKeyDown={handleKeyPress}
         isInvalid={confirmPasswordState}
-        errorMessage={confirmPasswordState ? "Did Not Match" : ""}
+        errorMessage={confirmPasswordState ? "Passwords do not match" : ""}
         onChange={checkConfirmPassword}
       />
-      <a href="#" className={authStatus ? "text-xs text-right" : "hidden"} style={{ color: "#006FEE" }}>
+      <p className={authStatus ? "text-xs text-right cursor-pointer" : "hidden"} style={{ color: "#006FEE" }}>
         Forgot Password?
-      </a>
+      </p>
       <Checkbox defaultSelected size="sm" className={authStatus ? "" : "hidden"}>
         Remember Me
       </Checkbox>
-      <Button className="mt-2 mb-2" color="primary" variant="shadow">
+      <Button className="mt-2 mb-2" color="primary" variant="shadow" onClick={submitAuth}>
         Submit
       </Button>
       <p className="text-xs text-center">

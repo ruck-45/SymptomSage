@@ -1,8 +1,7 @@
+// local Files
 import "./Landing.css";
 import NavBar from "./subComponents/NavBar";
 import ParallaxBg from './subComponents/ParallaxBg'
-
-
 
 const Landing = () => {
   return (

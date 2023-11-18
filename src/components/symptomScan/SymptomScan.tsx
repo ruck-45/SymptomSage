@@ -24,7 +24,7 @@ const SymptomScan = () => {
 
   return (
     <>
-      <div className="s2TopBar flex items-center ps-[7rem]">
+      <div className="s2TopBar flex items-center ps-[7%]">
         <Breadcrumbs size="lg" className="font-semibold">
           {directories.map((ob) => {
             return (
@@ -36,7 +36,7 @@ const SymptomScan = () => {
         </Breadcrumbs>
       </div>
       <Routes>
-        <Route path="/" element={<Navigate to="./Diagnosis" />} />
+        <Route path="/" element={<Navigate to="./SymptomsForm" />} />
         <Route
           path="/SymptomsForm"
           element={

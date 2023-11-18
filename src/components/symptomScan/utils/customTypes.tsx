@@ -1,6 +1,6 @@
 export type directory = {
-    name : string,
-    path : string
+  name: string;
+  path: string;
 }[];
 
 export type symptom = {
@@ -26,4 +26,10 @@ export type symptomData = {
   HealthSymptomLocationIDs: number[];
   ProfName: string;
   Synonyms: string[];
+}[];
+
+export type specialisation = {
+    ID: number;
+    Name: string;
+    SpecialistID: number;
 }[];

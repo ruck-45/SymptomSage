@@ -2,7 +2,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
 // Local Files
-import "./Home.css";
 import HomeNavBar from "./subComponents/HomeNavBar";
 import About from "../aboutPage/About";
 import Services from "../servicesPage/Services";
@@ -13,7 +12,7 @@ import FindMyCare from "../findMyCare/FindMyCare";
 
 const Home = () => {
   return (
-    <div className="Home">
+    <div>
       <HomeNavBar />
       <Routes>
         <Route path="/" element={<Navigate to="./SymptomScan" />} />
