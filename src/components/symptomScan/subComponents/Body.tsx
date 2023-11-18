@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import "./Body.css";
 import head from "../assets/head.svg";
 import lhand from "../assets/lhand.svg";
-import lleg from "../assets/lleg.svg";
+import lleg from "../assets/leftleg.svg";
 import rhand from "../assets/rhand.svg";
 import rleg from "../assets/rleg.svg";
 import abdomen from "../assets/abdomen.svg";
