@@ -1,21 +1,44 @@
 // Dependencies
 import { Routes, Route, Navigate } from "react-router-dom";
+import { lazy, Suspense } from "react";
 
 // Local Files
-import Landing from "./components/landingPage/Landing";
-import UserAuth from "./components/loginPage/UserAuth";
-import Home from "./components/homePage/Home";
+
+const Landing = lazy(() => import("./components/landingPage/Landing"));
+const UserAuth = lazy(() => import("./components/loginPage/UserAuth"));
+const Home = lazy(() => import("./components/homePage/Home"));
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/Landing" />} />
-      <Route path="/Landing" element={<Landing />} />
-      <Route path="/Authentication" element={<UserAuth />} />
-      <Route path="/Home/*" element={<Home />} />
-      <Route path="*" element={<Landing />} />
+      <Route
+        path="/Landing"
+        element={
+          <Suspense fallback={<h1>Loading....</h1>}>
+            <Landing />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/Authentication"
+        element={
+          <Suspense fallback={<h1>Loading....</h1>}>
+            <UserAuth />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/Home/*"
+        element={
+          <Suspense fallback={<h1>Loading....</h1>}>
+            <Home />
+          </Suspense>
+        }
+      />
+      <Route path="*" element={<Navigate to="/Landing" />} />
     </Routes>
   );
-  }
+}
 
 export default App;

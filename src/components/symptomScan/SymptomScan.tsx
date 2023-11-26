@@ -11,7 +11,7 @@ import Diagnosis from "./subComponents/Diagnosis";
 
 const SymptomScan = () => {
   const [symptomsToken, setSymptomsToken] = useState(false);
-  const [diagnosisToken, setDiagnosisToken] = useState(true); // change this to false and also the default routing
+  const [diagnosisToken, setDiagnosisToken] = useState(false);
 
   const [infoToken, setInfoToken] = useState(false);
   const [age, setAge] = useState(20);
@@ -71,21 +71,7 @@ const SymptomScan = () => {
                 directories={directories}
               />
             ) : (
-              <SymptomsForm
-                setSymptomsToken={setSymptomsToken}
-                infoToken={infoToken}
-                setInfoToken={setInfoToken}
-                age={age}
-                sex={sex}
-                setAge={setAge}
-                setSex={setSex}
-                symptoms={symptoms}
-                setSymptoms={setSymptoms}
-                setSymptomsIds={setSymptomsIds}
-                setDiagnosisToken={setDiagnosisToken}
-                setDirectories={setDirectories}
-                directories={directories}
-              />
+              <Navigate to="./SymptomsForm" />
             )
           }
         />
@@ -101,44 +87,11 @@ const SymptomScan = () => {
                 directories={directories}
               />
             ) : (
-              <SymptomsForm
-                setSymptomsToken={setSymptomsToken}
-                infoToken={infoToken}
-                setInfoToken={setInfoToken}
-                age={age}
-                sex={sex}
-                setAge={setAge}
-                setSex={setSex}
-                symptoms={symptoms}
-                setSymptoms={setSymptoms}
-                setSymptomsIds={setSymptomsIds}
-                setDiagnosisToken={setDiagnosisToken}
-                setDirectories={setDirectories}
-                directories={directories}
-              />
+              <Navigate to="./SymptomsForm" />
             )
           }
         />
-        <Route
-          path="/*"
-          element={
-            <SymptomsForm
-              setSymptomsToken={setSymptomsToken}
-              infoToken={infoToken}
-              setInfoToken={setInfoToken}
-              age={age}
-              sex={sex}
-              setAge={setAge}
-              setSex={setSex}
-              symptoms={symptoms}
-              setSymptoms={setSymptoms}
-              setSymptomsIds={setSymptomsIds}
-              setDiagnosisToken={setDiagnosisToken}
-              setDirectories={setDirectories}
-              directories={directories}
-            />
-          }
-        />
+        <Route path="/*" element={<Navigate to="./SymptomsForm" />} />
       </Routes>
     </>
   );

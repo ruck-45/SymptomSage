@@ -22,7 +22,7 @@ const Home = () => {
         <Route path="/FindMyCare" element={<FindMyCare />} />
         <Route path="/Services" element={<Services />} />
         <Route path="/About" element={<About />} />
-        <Route path="/*" element={<SymptomScan />} />
+        <Route path="/*" element={<Navigate to="./SymptomScan" />} />
       </Routes>
     </div>
   );
