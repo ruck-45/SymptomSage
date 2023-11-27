@@ -21,7 +21,7 @@ import { useNavigate } from "react-router-dom";
 // Local Files
 import "./NavBar.css";
 import Logo from "../../../globalSubComponents/Logo";
-import Profile from "../../../globalAssets/dummyProfile.png";
+import Profile from "../../../globalAssets/dummyProfile.svg";
 
 type NavBarProps = {
   className?: string;

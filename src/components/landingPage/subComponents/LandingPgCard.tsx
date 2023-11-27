@@ -6,10 +6,10 @@ import { useNavigate } from "react-router-dom";
 import "./LandingPgCard.css";
 import SymptomSubCard from "./SymptomSubCard";
 
-import SymptomScan from "../assets/symptomScan.png";
-import FitnessPal from "../assets/fitnessPal.png";
-import FindMyCare from "../assets/findMyCare.png";
-import MedMatch360 from "../assets/medMatch360.png";
+import SymptomScan from "../assets/symptomScan.svg";
+import FitnessPal from "../assets/fitnessPal.svg";
+import FindMyCare from "../assets/findMyCare.svg";
+import MedMatch360 from "../assets/medMatch360.svg";
 
 import l3 from "../assets/leaf3.svg";
 import l4 from "../assets/leaf4.svg";

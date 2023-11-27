@@ -27,7 +27,7 @@ import { BsArrowUpRightSquare } from "react-icons/bs";
 // Local Files
 import "./HomeNavBar.css";
 import Logo from "../../../globalSubComponents/Logo";
-import Profile from "../../../globalAssets/dummyProfile.png";
+import Profile from "../../../globalAssets/dummyProfile.svg";
 
 type HomeNavBarProps = {
   className?: string;
