@@ -71,8 +71,10 @@ const HomeNavBar = (props: HomeNavBarProps) => {
 
   const navigate = useNavigate();
   const routeChangeLanding = (event: routeChangeLandingEvent) => {
-    let path = `../Landing`;
-    navigate(path);
+    localStorage.clear();
+    sessionStorage.clear();
+
+    navigate(`../Landing`);
     event.preventDefault();
   };
 
@@ -83,8 +85,6 @@ const HomeNavBar = (props: HomeNavBarProps) => {
     setActiveElement(cur);
     setIsMenuOpen(false);
   };
-
-  // shouldHideOnScroll;
 
   return (
     <Navbar

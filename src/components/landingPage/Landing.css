@@ -1,7 +1,3 @@
-::-webkit-scrollbar {
-  display: none;
-}
-
 div{
     scroll-behavior: smooth;
 }

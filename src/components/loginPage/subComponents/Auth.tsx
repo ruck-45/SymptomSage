@@ -11,9 +11,25 @@ import "./Auth.css";
 import EyeFilledIcon from "./EyeFilledIcon";
 import EyeSlashFilledIcon from "./EyeSlashFilledIcon";
 import Logo from "../../../globalSubComponents/Logo";
+import serverSideAuth from "../../../globalUtils/serverSideAuth";
+
+// Utils
+const emailRe: RegExp = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-]+)(\.[a-zA-Z]{2,5}){1,2}$/;
+const passwordRe: RegExp = /^[a-zA-Z0-9!@#$&*^%_\-+]+$/;
+const passwordSpclChar: RegExp = /[!@#$&*^%_\-+]/;
+const passwordLowCase: RegExp = /[a-z]/;
+const passwordHighCase: RegExp = /[A-Z]/;
+const passwordDigit: RegExp = /[0-9]/;
+
+const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+  }
+};
 
 type AuthProps = {
   authState: boolean;
+  setmemory:Function;
 };
 
 const Auth = (props: AuthProps) => {
@@ -24,12 +40,6 @@ const Auth = (props: AuthProps) => {
   const changeAuthStatus = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
     setauthStatus(!authStatus);
-  };
-
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-    }
   };
 
   const email = useRef("");
@@ -44,6 +54,8 @@ const Auth = (props: AuthProps) => {
   const [passwordState, setPasswordState] = useState(false);
   const [confirmPasswordState, setConfirmPasswordState] = useState(false);
   const [usernameState, setUsernameState] = useState(false);
+
+  const [rememberMe, setRememberMe] = useState(true);
 
   const evaluateSubmit = () => {
     if (emailState || passwordState || email.current === "" || password.current === "") {
@@ -60,13 +72,6 @@ const Auth = (props: AuthProps) => {
       }
     }
   };
-
-  const emailRe: RegExp = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-]+)(\.[a-zA-Z]{2,5}){1,2}$/;
-  const passwordRe: RegExp = /^[a-zA-Z0-9!@#$&*^%_\-+]+$/;
-  const passwordSpclChar: RegExp = /[!@#$&*^%_\-+]/;
-  const passwordLowCase: RegExp = /[a-z]/;
-  const passwordHighCase: RegExp = /[A-Z]/;
-  const passwordDigit: RegExp = /[0-9]/;
 
   const checkEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     email.current = event.target.value;
@@ -128,15 +133,46 @@ const Auth = (props: AuthProps) => {
     }
   };
 
-  const navigate = useNavigate();
+  const getAuthObj = () => {
+    let authObj: { [key: string]: string } = {
+      email: email.current,
+      password: password.current,
+    };
 
+    if (!authStatus) {
+      return {
+        username: username.current,
+        ...authObj,
+      };
+    }
+
+    return authObj;
+  };
+
+  const storeCred = (userData: { [key: string]: string }) => {
+    for (const key in userData) {
+      if (rememberMe) {
+        localStorage.setItem(key, userData[key]);
+      } else {
+        sessionStorage.setItem(key, userData[key]);
+      }
+    }
+  };
+
+  const navigate = useNavigate();
   const submitAuth = () => {
     const submitStat = evaluateSubmit();
     if (submitStat) {
-      // Perform Submit operation here
-      navigate("../Home");
+      const userData = getAuthObj();
+      if (authStatus) {
+        storeCred(userData);
+        props.setmemory(serverSideAuth(userData));
+        navigate("../Home");
+      } else {
+      }
     } else {
       // cancle submit option here
+      // Add a notification Here *************** as not all fields inputed correctly
       console.log("cancled");
     }
   };
@@ -208,7 +244,12 @@ const Auth = (props: AuthProps) => {
       <p className={authStatus ? "text-xs text-right cursor-pointer" : "hidden"} style={{ color: "#006FEE" }}>
         Forgot Password?
       </p>
-      <Checkbox defaultSelected size="sm" className={authStatus ? "" : "hidden"}>
+      <Checkbox
+        defaultSelected
+        size="sm"
+        className={authStatus ? "" : "hidden"}
+        onChange={() => setRememberMe((prev) => !prev)}
+      >
         Remember Me
       </Checkbox>
       <Button className="mt-2 mb-2" color="primary" variant="shadow" onClick={submitAuth}>
