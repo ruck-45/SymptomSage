@@ -1,11 +1,22 @@
+// Dependencies
+import { useEffect } from "react";
 
 // Local Files
 import "./FindMyCare.css";
+import { directory } from "../symptomScan/utils/customTypes";
 
-const FindMyCare = () => {
-  return (
-    <div>FindMyCare</div>
-  )
-}
+type FindMyCareProps = {
+  setDirectories: Function;
+};
 
-export default FindMyCare
+const FindMyCare = (props: FindMyCareProps) => {
+  const curDir: directory = [{ name: "Find My Care", path: "/Home/FindMyCare" }];
+
+  useEffect(() => {
+    props.setDirectories((prev: directory) => curDir);
+  }, []);
+
+  return <div>FindMyCare</div>;
+};
+
+export default FindMyCare;

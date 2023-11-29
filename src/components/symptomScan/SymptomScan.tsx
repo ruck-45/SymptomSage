@@ -1,15 +1,20 @@
 // Dependencies
-import { Routes, Route, Navigate, Link } from "react-router-dom";
-import { useState } from "react";
-import { Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useState, lazy, Suspense, useEffect } from "react";
 
 // Local Files
-import "./SymptomScan.css";
-import SymptomsForm from "./subComponents/SymptomsForm";
-import SymptomsList from "./subComponents/SymptomsList";
-import Diagnosis from "./subComponents/Diagnosis";
+import HomeLoading from "../../globalSubComponents/HomeLoading";
+import { directory } from "./utils/customTypes";
 
-const SymptomScan = () => {
+const SymptomsForm = lazy(() => import("./subComponents/SymptomsForm"));
+const SymptomsList = lazy(() => import("./subComponents/SymptomsList"));
+const Diagnosis = lazy(() => import("./subComponents/Diagnosis"));
+
+type SymptomScanProps = {
+  setDirectories: Function;
+};
+
+const SymptomScan = (props: SymptomScanProps) => {
   const [symptomsToken, setSymptomsToken] = useState(false);
   const [diagnosisToken, setDiagnosisToken] = useState(false);
 
@@ -20,26 +25,19 @@ const SymptomScan = () => {
   const [symptoms, setSymptoms] = useState([]);
   const [symptomsids, setSymptomsIds] = useState({});
 
-  const [directories, setDirectories] = useState([{ name: "Symptom Scan", path: "/Home/SymptomScan/SymptomsForm" }]);
+  const curDir: directory = [{ name: "Symptom Scan", path: "/Home/SymptomScan/SymptomsForm" }];
+
+  useEffect(() => {
+    props.setDirectories((prev: directory) => curDir);
+  }, []);
 
   return (
-    <>
-      <div className="s2TopBar flex items-center ps-[7%]">
-        <Breadcrumbs size="lg" className="font-semibold">
-          {directories.map((ob) => {
-            return (
-              <BreadcrumbItem key={ob.name}>
-                <Link to={ob.path}>{ob.name}</Link>
-              </BreadcrumbItem>
-            );
-          })}
-        </Breadcrumbs>
-      </div>
-      <Routes>
-        <Route path="/" element={<Navigate to="./SymptomsForm" />} />
-        <Route
-          path="/SymptomsForm"
-          element={
+    <Routes>
+      <Route path="/" element={<Navigate to="./SymptomsForm" />} />
+      <Route
+        path="/SymptomsForm"
+        element={
+          <Suspense fallback={<HomeLoading />}>
             <SymptomsForm
               setSymptomsToken={setSymptomsToken}
               infoToken={infoToken}
@@ -52,48 +50,44 @@ const SymptomScan = () => {
               setSymptoms={setSymptoms}
               setSymptomsIds={setSymptomsIds}
               setDiagnosisToken={setDiagnosisToken}
-              setDirectories={setDirectories}
-              directories={directories}
+              setDirectories={props.setDirectories}
             />
-          }
-        />
-        <Route
-          path="/SymptomsList"
-          element={
-            symptomsToken ? (
+          </Suspense>
+        }
+      />
+      <Route
+        path="/SymptomsList"
+        element={
+          symptomsToken ? (
+            <Suspense fallback={<HomeLoading />}>
               <SymptomsList
                 setSymptoms={setSymptoms}
                 setSymptomsIds={setSymptomsIds}
                 symptomsids={symptomsids}
                 age={age}
                 sex={sex}
-                setDirectories={setDirectories}
-                directories={directories}
+                setDirectories={props.setDirectories}
               />
-            ) : (
-              <Navigate to="./SymptomsForm" />
-            )
-          }
-        />
-        <Route
-          path="/Diagnosis"
-          element={
-            diagnosisToken ? (
-              <Diagnosis
-                age={age}
-                sex={sex}
-                symptomsids={symptomsids}
-                setDirectories={setDirectories}
-                directories={directories}
-              />
-            ) : (
-              <Navigate to="./SymptomsForm" />
-            )
-          }
-        />
-        <Route path="/*" element={<Navigate to="./SymptomsForm" />} />
-      </Routes>
-    </>
+            </Suspense>
+          ) : (
+            <Navigate to="./SymptomsForm" />
+          )
+        }
+      />
+      <Route
+        path="/Diagnosis"
+        element={
+          diagnosisToken ? (
+            <Suspense fallback={<HomeLoading />}>
+              <Diagnosis age={age} sex={sex} symptomsids={symptomsids} setDirectories={props.setDirectories} />
+            </Suspense>
+          ) : (
+            <Navigate to="./SymptomsForm" />
+          )
+        }
+      />
+      <Route path="/*" element={<Navigate to="./SymptomsForm" />} />
+    </Routes>
   );
 };
 

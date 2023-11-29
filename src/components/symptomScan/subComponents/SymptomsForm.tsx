@@ -32,7 +32,6 @@ type symptomsFormProps = {
   setSymptomsIds: Function;
   setDiagnosisToken: Function;
   setDirectories: Function;
-  directories: directory;
 };
 
 const SymptomsForm = (props: symptomsFormProps) => {

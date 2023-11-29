@@ -1,10 +1,11 @@
 // Dependencies
 import { Routes, Route, Navigate } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 
 // Local Files
 import HomeNavBar from "./subComponents/HomeNavBar";
-import Loading from "../../globalSubComponents/Loading";
+import HomeLoading from "../../globalSubComponents/HomeLoading";
+import HomeBreadCrumb from "./subComponents/HomeBreadCrumb";
 
 const About = lazy(() => import("../aboutPage/About"));
 const Services = lazy(() => import("../servicesPage/Services"));
@@ -14,56 +15,59 @@ const MedMatch360 = lazy(() => import("../medMatch360/MedMatch360"));
 const FindMyCare = lazy(() => import("../findMyCare/FindMyCare"));
 
 const Home = () => {
+  const [directories, setDirectories] = useState();
+
   return (
     <div>
       <HomeNavBar />
+      <HomeBreadCrumb directories={directories} />
       <Routes>
         <Route path="/" element={<Navigate to="./SymptomScan" />} />
         <Route
           path="/SymptomScan/*"
           element={
-            <Suspense fallback={<Loading />}>
-              <SymptomScan />
+            <Suspense fallback={<HomeLoading />}>
+              <SymptomScan setDirectories={setDirectories} />
             </Suspense>
           }
         />
         <Route
           path="/FitnessPal"
           element={
-            <Suspense fallback={<Loading />}>
-              <FitnessPal />
+            <Suspense fallback={<HomeLoading />}>
+              <FitnessPal setDirectories={setDirectories} />
             </Suspense>
           }
         />
         <Route
           path="/MedMatch360"
           element={
-            <Suspense fallback={<Loading />}>
-              <MedMatch360 />
+            <Suspense fallback={<HomeLoading />}>
+              <MedMatch360 setDirectories={setDirectories} />
             </Suspense>
           }
         />
         <Route
           path="/FindMyCare"
           element={
-            <Suspense fallback={<Loading />}>
-              <FindMyCare />
+            <Suspense fallback={<HomeLoading />}>
+              <FindMyCare setDirectories={setDirectories} />
             </Suspense>
           }
         />
         <Route
           path="/Services"
           element={
-            <Suspense fallback={<Loading />}>
-              <Services />
+            <Suspense fallback={<HomeLoading />}>
+              <Services setDirectories={setDirectories} />
             </Suspense>
           }
         />
         <Route
           path="/About"
           element={
-            <Suspense fallback={<Loading />}>
-              <About />
+            <Suspense fallback={<HomeLoading />}>
+              <About setDirectories={setDirectories} />
             </Suspense>
           }
         />

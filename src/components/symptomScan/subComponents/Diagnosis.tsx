@@ -28,7 +28,6 @@ type DiagnosisProps = {
   sex: string;
   symptomsids: symptomsid;
   setDirectories: Function;
-  directories: directory;
 };
 
 const iconClass = "text-5xl bg-black text-white p-2 rounded-xl";

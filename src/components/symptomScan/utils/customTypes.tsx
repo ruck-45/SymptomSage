@@ -1,7 +1,7 @@
 export type directory = {
   name: string;
   path: string;
-}[];
+}[] | undefined;
 
 export type symptom = {
   Name: string;
